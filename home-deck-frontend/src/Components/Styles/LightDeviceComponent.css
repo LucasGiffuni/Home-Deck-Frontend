@@ -1,0 +1,14 @@
+.form-check-input{
+    height: 25px;
+    min-width: 50px;
+}
+
+.light-image{
+    background-image: url('./Resources/WeatherSun.gif');
+    background-position: center center;
+    background-size: 100% 100%;
+    min-width: 35%;
+    height: 23%;
+    display: block;
+    margin: auto;
+}
