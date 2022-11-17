@@ -6,9 +6,9 @@ import styled from 'styled-components';
 
 
 const Button = styled.div`   
-    border-radius: 75px;
-    height: 75px;
-    width: 75px;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
     background-color: ${props => (props.checkedValue ? " rgba(246, 135, 51, 1)" : "#2e2e2e")}; 
 
     margin: 10%;
@@ -28,7 +28,7 @@ const ButtonBody = styled.div`
     text-align: left;
     color: white;
     margin: auto;
-    margin-left: 23%;
+    margin-left: 24%;
 
 `;
 

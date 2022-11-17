@@ -14,33 +14,33 @@ export default class WeatherComponent extends Component {
 
 
         return (
-            <div class="WeatherCardBody">
-                <p class="weatherCity"> Montevideo </p>
+            <div className="WeatherCardBody">
+                <p className="weatherCity"> Montevideo </p>
 
-                <div class="weatherImage" />
+                <div className="weatherImage" />
 
-                <p class="temperatureNumber"> 19 &#176;</p>
-                <p class="weatherDesc"> Sunny</p>
+                <p className="temperatureNumber"> 19 &#176;</p>
+                <p className="weatherDesc"> Sunny</p>
 
 
-                <hr class="weatherSeparator" />
-                <div class="todayWeatherInfo">
-                    <div class="one">
+                <hr className="weatherSeparator" />
+                <div className="todayWeatherInfo">
+                    <div className="one">
                         <p>Now</p>
-                        <div class="weatherSun" />
-                        <p class="weatherDegree">10&#176;</p>
+                        <div className="weatherSun" />
+                        <p className="weatherDegree">10&#176;</p>
 
                     </div>
-                    <div class="two">
+                    <div className="two">
                         <p>Monday</p>
-                        <div class="weatherStorm" />
-                        <p class="weatherDegree">22&#176;</p>
+                        <div className="weatherStorm" />
+                        <p className="weatherDegree">22&#176;</p>
 
                     </div>
-                    <div class="thre">
+                    <div className="thre">
                         <p>Tuesday</p>
-                        <div class="weatherWindy" />
-                        <p class="weatherDegree">2&#176;</p>
+                        <div className="weatherWindy" />
+                        <p className="weatherDegree">2&#176;</p>
 
                     </div>
                 </div>

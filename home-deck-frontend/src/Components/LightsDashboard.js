@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React, { Component } from 'react'
 import styled from 'styled-components';
 
 import LightDeviceComponent from './LightDeviceComponent'
 
-import RoundedImage from './RoundedImage';
 
 
 
@@ -20,8 +20,8 @@ const Light1 = styled.div`
   
 
     background: ${props => (props.checked ? "radial-gradient(circle at 50% 51%, rgba(245, 128, 37, 1) 50%, rgba(246, 135, 51, 1) 93%)" : "#292C33")};
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 
     font-family: 'Poppins', sans-serif;
     border-radius: 30px;
@@ -35,8 +35,8 @@ const Light2 = styled.div`
     grid-area: 1 / 2 / 2 / 3;
   
     background: ${props => (props.checked ? "radial-gradient(circle at 50% 51%, rgba(245, 128, 37, 1) 50%, rgba(246, 135, 51, 1) 93%)" : "#292C33")};
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 
     font-family: 'Poppins', sans-serif;
     border-radius: 30px;
@@ -50,8 +50,8 @@ const Light3 = styled.div`
     grid-area: 2 / 1 / 3 / 2;
 
     background: ${props => (props.checked ? "radial-gradient(circle at 50% 51%, rgba(245, 128, 37, 1) 50%, rgba(246, 135, 51, 1) 93%)" : "#292C33")};
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 
     font-family: 'Poppins', sans-serif;
     border-radius: 30px;
@@ -63,8 +63,8 @@ const Light4 = styled.div`
     grid-area: 2 / 2 / 3 / 3;
   
     background: ${props => (props.checked ? "radial-gradient(circle at 50% 51%, rgba(245, 128, 37, 1) 50%, rgba(246, 135, 51, 1) 93%)" : "#292C33")};
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 
     font-family: 'Poppins', sans-serif;
     border-radius: 30px;
@@ -75,7 +75,7 @@ const Light4 = styled.div`
 
 
 
-export default class DevicesComponent extends Component {
+export default class LightsDashboard extends Component {
 
 
     state = {
@@ -126,16 +126,19 @@ export default class DevicesComponent extends Component {
                     <LightDeviceComponent text={"Light 1"} />
 
                 </Light1>
+                
                 <Light2 checked={this.state.b2State} onChange={eventhandler2} id='Light2'>
 
                     <LightDeviceComponent text={"Light 2"} />
 
                 </Light2>
+
                 <Light3 checked={this.state.b3State} onChange={eventhandler3} id='Light3'>
 
                     <LightDeviceComponent text={"Light 3"} />
 
                 </Light3>
+
                 <Light4 checked={this.state.b4State} onChange={eventhandler4} id='Light4'>
 
                     <LightDeviceComponent text={"Light 4"} />
