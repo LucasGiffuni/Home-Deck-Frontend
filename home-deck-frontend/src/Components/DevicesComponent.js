@@ -18,60 +18,62 @@ const LightDevicesContainer = styled.div`
 `;
 const Light1 = styled.div`   
     grid-area: 1 / 1 / 2 / 2;
-    text-align: right;
-    background-color: #494549;
-    background-image: linear-gradient(0deg, #0F2027 0%, #2C5364 100%);
+  
 
+    background: ${props=>(props.checked ?"radial-gradient(circle at 50% 51%, rgba(245, 128, 37, 1) 50%, rgba(246, 135, 51, 1) 93%)" : "#292C33")};
     height: 200px;
     width: 30%;
-    background-color: #fff;
-    position: relative;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 
     font-family: 'Poppins', sans-serif;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    
+    box-shadow: ${props=>(props.checked ? "0px 0px 9px 4px rgba(249,177,122,0.48)" : "0px 0px 9px 4px rgba(0,0,0,0.48)")}; 
 
 `;
 const Light2 = styled.div`   
     grid-area: 1 / 2 / 2 / 3;
-    text-align: right;
-   
+    background-color: #292C33;
+
     height: 200px;
     width: 30%;
-    background-color: #fff;
-    position: relative;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.48);
+
 `;
 
 const Light3 = styled.div`   
     grid-area: 2 / 1 / 3 / 2;
     text-align: right;
-   
+    background-color: #292C33;
+
     height: 200px;
     width: 30%;
-    background-color: #fff;
     position: relative;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.48);
+
 `;
 const Light4 = styled.div`   
     grid-area: 2 / 2 / 3 / 3;
     text-align: right;
-   
+    background-color: #292C33;
+
     height: 200px;
     width: 30%;
-    background-color: #fff;
     position: relative;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.48);
+
 `;
 
 
@@ -79,13 +81,27 @@ const Light4 = styled.div`
 export default class DevicesComponent extends Component {
 
 
+    state = {
+        b1State: true,
+        b2State: "",
+        b3State: "",
+        b4State: ""
+
+
+    };
+
 
     render() {
-
+        const eventhandler = data => {
+            console.log(data.target.checked)
+            this.setState({
+                b1State: data.target.checked
+            });
+        }
 
         return (
             <LightDevicesContainer>
-                <Light1>
+                <Light1 checked={this.state.b1State} onChange={eventhandler}>
                     <LightDeviceComponent />
 
                 </Light1>

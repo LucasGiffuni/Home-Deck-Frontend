@@ -1,14 +1,61 @@
-.form-check-input{
-    height: 25px;
-    min-width: 50px;
+.light-image {
+  align-items: center;
+  background-image: url('./Resources/LightBulb.png');
+
+  max-width: 48px;
+  min-height: 48px;
+  margin: auto;
+  margin-top: 10%;
+
 }
 
-.light-image{
-    background-image: url('./Resources/WeatherSun.gif');
-    background-position: center center;
-    background-size: 100% 100%;
-    min-width: 35%;
-    height: 23%;
-    display: block;
-    margin: auto;
+.toggle-switch {
+
+  position: relative;
+  width: 50px;
+  height: 25px;
+  margin: auto;
+
+}
+
+.toggle-switch input[type="checkbox"] {
+  display: none;
+
+}
+
+.toggle-switch .switch {
+  text-align: right;
+  align-items: right;
+  position: absolute;
+  cursor: pointer;
+  background-color: #15161A;
+
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+
+}
+
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch input[type="checkbox"]:checked+.switch::before {
+  transform: translateX(25px);
+  background-color: white;
+}
+
+.toggle-switch input[type="checkbox"]:checked+.switch {
+  background-color: #fde5d3;
 }
