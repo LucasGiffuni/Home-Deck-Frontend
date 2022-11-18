@@ -1,0 +1,26 @@
+.carousel-inner active {
+    display: grid;
+
+}
+.carousel-item.active{
+    display: grid;
+}
+.carousel-item-next{
+    display: grid;
+}
+.carousel-item-end{
+    display: grid;
+}
+.carousel-control-prev{
+    left: -8%;
+
+}
+.carousel-control-next{
+    right: -8%;
+
+
+}
+.carousel-indicators{
+    bottom: 0;
+    margin-bottom: -1rem;
+}

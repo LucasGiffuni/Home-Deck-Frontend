@@ -5,11 +5,12 @@ import './Styles/Home.css'
 
 import Alert from 'react-bootstrap/Alert';
 import LoginScreen from './LoginScreen';
-import WeatherComponent from './WeatherComponent';
-import LightsDashboard from './LightsDashboard'
-import ShadesDashboard from './ShadesDashboard'
+import WeatherComponent from './Weather/WeatherComponent';
+import LightsDashboard from './Lights/LightsDashboard'
+import ShadesDashboard from './Shades/ShadesDashboard'
+import TemperatureDashboard from './Temperature/TemperatureDashboard';
 
-import RoundedImage from './RoundedImage';
+import Carousel from 'react-bootstrap/Carousel';
 
 const ScreenStyle = styled.div`   
    height: 100vh;
@@ -17,10 +18,11 @@ const ScreenStyle = styled.div`
    align-items: center;
    justify-content: center;
    display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-template-rows: repeat(2, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
 `;
 
 const WeatherContainer = styled.div`   
@@ -36,6 +38,7 @@ const LightsContainer = styled.div`
 
     width: fit-content;
     background-color: #212329;
+
     padding-top: .5%;
     padding-left: 1.2%;
     padding-right: 1.2%;
@@ -57,10 +60,23 @@ const ShadesContainer = styled.div`
     padding-right: 1.2%;
     padding-bottom: 1.2%;
     border-radius: 30px;
-   
 
 `;
+const TemperatureContainer = styled.div` 
+    grid-area: 1 / 2 / 2 / 3;
+    position: fixed; 
+    right:0%;
 
+    width: fit-content;
+  
+    background-color: #1a1c21;
+    padding-top: .5%;
+    padding-left: 1.2%;
+    padding-right: 1.2%;
+    padding-bottom: 1.2%;
+    border-radius: 30px;
+
+`;
 const DevicesTitle = styled.p` 
     text-align: left;
     color: white;
@@ -75,6 +91,22 @@ const DevicesTitle = styled.p`
       0 0 90px #d8640a,
       0 0 100px #d8640a,
       0 0 150px #d8640a;
+
+`;
+const ShadesDevicesTitle = styled.p` 
+    text-align: left;
+    color: white;
+    margin: auto;
+    font-size: 1.5rem;
+     text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #1a9ebd,
+      0 0 80px #1a9ebd,
+      0 0 90px #1a9ebd,
+      0 0 100px #1a9ebd,
+      0 0 150px #1a9ebd;
 
 `;
 
@@ -139,10 +171,16 @@ class Home extends Component {
             <ScreenStyle>
 
                 <ShadesContainer id='ShadesContainer'>
-                    <DevicesTitle className='deviceTitlePulsate'>Shades Devices</DevicesTitle>
+                    <ShadesDevicesTitle className='deviceTitlePulsate'>Shades Devices</ShadesDevicesTitle>
                     <ShadesDashboard />
                 </ShadesContainer>
 
+                <TemperatureContainer id='TemperatureContainer'>
+
+                    <TemperatureDashboard />
+
+                </TemperatureContainer>
+                
 
                 <LightsContainer id='LightsContainer'>
                     <DevicesTitle className='deviceTitlePulsate'>Lights Devices</DevicesTitle>

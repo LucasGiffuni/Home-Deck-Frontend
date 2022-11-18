@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import './Styles/LightDeviceComponent.css'
+import '../Styles/LightDeviceComponent.css'
 
-import RoundedImage from './RoundedImage';
+import RoundedImage from './LightBulbRoundedImage';
 
 //https://react-bootstrap.netlify.app/forms/checks-radios/#switches
 
@@ -71,7 +71,7 @@ function SwitchExample(props) {
       </Button>
 
       <RoundedImage checked={isToggled} />
-      <h1 className="neonText pulsate">{props.text}</h1>
+      <h1 className="neonLightText LightPulsate">{props.text}</h1>
     </LightBody>
   );
 }

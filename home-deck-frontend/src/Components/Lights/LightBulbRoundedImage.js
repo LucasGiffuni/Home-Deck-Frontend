@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Styles/RoundedImage.css'
+import '../Styles/LightBulbRoundedImage.css'
 import styled from 'styled-components';
 
 
@@ -32,7 +32,7 @@ const ButtonBody = styled.div`
 
 `;
 
-export default class RoundedImage extends Component {
+export default class LightBulbRoundedImage extends Component {
 
 
     render() {

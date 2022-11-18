@@ -63,7 +63,7 @@
 
 }
 
-.neonLightText {
+.neonShadeText {
   text-align: center;
   color: white;
   font-weight: bold;
@@ -77,17 +77,17 @@
 
 
 
-.LightPulsate {
+.ShadePulsate {
   /*
   text-shadow:
   0 0 4px #fff,
   0 0 11px #fff,
   0 0 19px #fff,
-  0 0 40px #d8640a,
-  0 0 80px #d8640a,
-  0 0 90px #d8640a,
-  0 0 100px #d8640a,
-  0 0 150px #d8640a;
+  0 0 40px #1a9ebd,
+  0 0 80px #1a9ebd,
+  0 0 90px #1a9ebd,
+  0 0 100px #1a9ebd,
+  0 0 150px #1a9ebd;
   */
  /* animation: pulsate 1.5s infinite alternate;*/
 }

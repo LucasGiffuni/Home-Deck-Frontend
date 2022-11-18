@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //import styled from 'styled-components';
-import './Styles/WeatherComponent.css';
+import '../Styles/WeatherComponent.css';
 
 
 
