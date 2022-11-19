@@ -1,35 +1,155 @@
 .deviceTitlePulsate2 {
-    animation: pulsate 1.5s infinite alternate;
+  animation: pulsate 1.5s infinite alternate;
+}
+
+@keyframes pulsate {
+
+  100% {
+
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #d8640a,
+      0 0 80px #d8640a,
+      0 0 90px #d8640a,
+      0 0 100px #d8640a,
+      0 0 150px #d8640a;
+
   }
-  
-  @keyframes pulsate {
-  
-    100% {
-  
-      text-shadow:
-        0 0 4px #fff,
-        0 0 11px #fff,
-        0 0 19px #fff,
-        0 0 40px #d8640a,
-        0 0 80px #d8640a,
-        0 0 90px #d8640a,
-        0 0 100px #d8640a,
-        0 0 150px #d8640a;
-  
-    }
-  
-    0% {
-  
-      text-shadow:
-        0 0 2px #fff,
-        0 0 4px #fff,
-        0 0 6px #fff,
-        0 0 10px #d8640a,
-        0 0 45px #d8640a,
-        0 0 55px #d8640a,
-        0 0 70px #d8640a,
-        0 0 80px #d8640a;
-  
-    }
-  
+
+  0% {
+
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #fff,
+      0 0 6px #fff,
+      0 0 10px #d8640a,
+      0 0 45px #d8640a,
+      0 0 55px #d8640a,
+      0 0 70px #d8640a,
+      0 0 80px #d8640a;
+
   }
+
+}
+
+
+.ScreenStyle {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.LoginStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.WeatherContainer {
+  width: 25.5%;
+  height: 50%;
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.LightsContainer {
+  grid-area: 3 / 3 / 4 / 4;
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+
+  width: fit-content;
+  background-color: #212329;
+
+  padding-top: .5%;
+  padding-left: 1.2%;
+  padding-right: 1.2%;
+  padding-bottom: 1.2%;
+  border-radius: 20px;
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.ShadesContainer {
+  grid-area: 1 / 3 / 2 / 4;
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  width: fit-content;
+  background-color: #212329;
+  padding-top: .5%;
+  padding-left: 1.2%;
+  padding-right: 1.2%;
+  padding-bottom: 1.2%;
+  border-radius: 20px;
+}
+
+.TemperatureContainer {
+  grid-area: 2 / 3 / 3 / 4;
+  position: fixed;
+  right: 0%;
+
+  width: fit-content;
+
+  background-color: #1a1c21;
+  padding-top: .5%;
+  padding-left: 1.2%;
+  padding-right: 1.2%;
+  padding-bottom: 1.2%;
+  border-radius: 20px;
+}
+
+.LightsDevicesTitle {
+  text-align: left;
+  color: white;
+  margin: auto;
+  font-size: 1.5rem;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 11px #fff,
+    0 0 19px #fff,
+    0 0 40px #d8640a,
+    0 0 80px #d8640a,
+    0 0 90px #d8640a,
+    0 0 100px #d8640a,
+    0 0 150px #d8640a;
+}
+
+.ShadesDevicesTitle {
+  text-align: left;
+  color: white;
+  margin: auto;
+  font-size: 1.5rem;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 11px #fff,
+    0 0 19px #fff,
+    0 0 40px #1a9ebd,
+    0 0 80px #1a9ebd,
+    0 0 90px #1a9ebd,
+    0 0 100px #1a9ebd,
+    0 0 150px #1a9ebd;
+}
+
+.NavBarContainer {
+  grid-area: 1 / 1 / 4 / 2;
+  width: 70px;
+  height: 95%;
+
+  margin-left: 2%;
+  margin-right: 2%;
+}

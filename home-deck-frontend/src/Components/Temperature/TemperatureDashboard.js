@@ -26,7 +26,7 @@ const Light1 = styled.div`
     margin-right: 20px;
     margin-top: 10px;
 
-    border-radius: 30px;
+    border-radius: 20px;
     
     box-shadow: ${props => (props.checked ? "0px 0px 9px 4px rgba(249,177,122,0.48)" : "0px 0px 9px 4px rgba(0,0,0,0.48)")}; 
 `;
@@ -40,7 +40,7 @@ const Light2 = styled.div`
     margin-top: 10px;
 
 
-    border-radius: 30px;
+    border-radius: 20px;
     
     box-shadow: ${props => (props.checked ? "0px 0px 9px 4px rgba(249,177,122,0.48)" : "0px 0px 9px 4px rgba(0,0,0,0.48)")}; 
 

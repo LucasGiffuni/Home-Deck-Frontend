@@ -1,9 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
+
+.LoginContainer {
+    height: 480px;
+    width: 450px;
+    background-color: #1f262a;
+    position: relative;
+    box-shadow: 0 0px 5px rgba(184, 168, 168, 0.6);
+    font-family: 'Poppins';
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+}
+.Login{
+
+}
+
+.box {
+
+    height: 75px;
+    width: 75px;
+    border-radius: 10px;
+    margin-top: 15%;
+    background-color: rgba(42, 169, 233, .65);
+    grid-area: 1 / 1 / 2 / 2;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+
+.LoginTitle {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.Inputs {
+    margin-top: 30%;
 }
 
 .container {
@@ -11,17 +48,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #eee
+    background-color: #1f262a
 }
 
 .card {
-    height: 50%;
-    width: 30%;
-    background-color: #fff;
+    height: 480px;
+    width: 450px;
+    background-color: #1f262a;
     position: relative;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Poppins', sans-serif;
-    border-radius: 10px;
+    box-shadow: 0 0px 5px rgba(184, 168, 168, 0.6);
+    font-family: 'Poppins';
+    border-radius: 5px;
     padding: 20px
 }
 
@@ -41,28 +78,32 @@
 
 .input-text {
     position: relative;
-    margin-top: 30px
+    margin-top: 30px;
+    background-color: rgba(49, 59, 65, .6);
+
 }
 
 input[type="text"] {
     height: 55px;
     width: 100%;
     border: none;
-    border-radius: 9px;
-    border: 1px solid #e0e3e9;
+    border-radius: 7px;
     padding: 0 10px;
     padding-left: 30px;
     outline: 0;
     font-size: 20px;
-    color: black
+    background-color: rgba(49, 59, 65, .6);
+    color: #fff;
 }
 
 input[type="password"] {
     height: 55px;
     width: 100%;
     border: none;
-    border-radius: 9px;
-    border: 1px solid #e0e3e9;
+    border-radius: 5px;
+    background-color: rgba(49, 59, 65, .6);
+    color: #fff;
+
     padding: 0 10px;
     padding-left: 30px;
     padding-right: 27px;
@@ -84,6 +125,9 @@ input[type="password"] {
     cursor: pointer;
     font-size: 30px
 }
+
+
+
 
 .input-text .fa-eye-slash {
     position: absolute;
@@ -108,6 +152,10 @@ input[type="password"] {
     font-size: 30px;
     cursor: pointer
 }
+.fa-eye::before {
+    font-size: 30px;
+    cursor: pointer
+}
 
 .buttons {
     padding-top: 130px;
@@ -121,12 +169,14 @@ input[type="password"] {
     width: 100%;
     border: none;
     background-color: #267fff;
-    border-radius: 9px;
+    border-radius: 5px;
     font-size: 12px;
     outline: 0;
     color: #fff;
     cursor: pointer;
-    transition: all 0.5s
+    transition: all 0.5s;
+    margin-top: -30%;
+
 }
 
 .buttons button:hover {
@@ -151,4 +201,3 @@ input[type="password"] {
     margin-top: 50px;
 
 }
-
