@@ -1,12 +1,14 @@
 import React, { Component, useState, useEffect, useRef } from 'react'
-//import styled from 'styled-components';
+import styled from 'styled-components';
 import '../Styles/WeatherComponent.css';
 import { getWeather } from '../Services/UserService';
 
 
 
-// FONT: https://freetypography.com/2016/02/14/free-font-simple/
-//https://dribbble.com/shots/2227157-Free-iPhone-Backgrounds/attachments/2227157?mode=media
+
+
+
+
 function Weather(props) {
 
 
@@ -16,8 +18,9 @@ function Weather(props) {
         temperature: "",
         minTemperature: "",
         maxTemperature: "",
-        windSpeed: ""
-        
+        windSpeed: "",
+        humidity: ""
+
     });
 
     useEffect(() => {
@@ -50,7 +53,6 @@ function Weather(props) {
             <div className='WeatherDegree'>
                 <h1>{values.temperature}&deg;C</h1>
                 <p>{values.maxTemperature}&deg;C  /  {values.minTemperature}&deg;C</p>
-
             </div>
         </div>
     )

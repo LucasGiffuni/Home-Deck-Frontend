@@ -63,11 +63,23 @@
     width: 100%;
 
 }
-
+.react-grid-item{
+background-color: white;
+}
 .Preview {
+    /*
     grid-area: 1 / 1 / 4 / 4;
     background-color: #1f262a;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border: 1px solid black;
+    */
+    /* try border-left and border-right */
+    
 }
 
 .carousel-control-prev {
@@ -77,6 +89,7 @@
 .carousel-control-next {
     width: 20px;
 }
+
 .carousel-indicators {
     margin-bottom: 0px;
 }
