@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import '../Styles/ShadeDeviceComponent.css'
+import '../Styles/DoorDeviceComponent.css'
 
-import RoundedImage from './ShadeRoundedImage';
+import RoundedImage from './DoorRoundedImage';
 
 //https://react-bootstrap.netlify.app/forms/checks-radios/#switches
 
@@ -40,7 +40,7 @@ const OnOff = styled.p`
 `;
 
 
-const LightBody = styled.div`   
+const DoorBody = styled.div`   
   width: 100%;
   height: 100%;
 `;
@@ -62,10 +62,10 @@ function SwitchExample(props) {
 
   return (
 
-    <LightBody id='LightBody'>
+    <DoorBody id='LightBody'>
       <Button>
 
-        <OnOff>{isToggled ? "ON" : "OFF"}</OnOff>
+        <OnOff>{isToggled ? "OPENED" : "CLOSED"}</OnOff>
         <label className="toggle-switch">
           <input type="checkbox" checked={isToggled} onChange={onToggle} />
           <span className="switch" />
@@ -74,7 +74,7 @@ function SwitchExample(props) {
 
       <RoundedImage checked={isToggled} />
       <h1 className="neonShadeText ShadePulsate">{props.text}</h1>
-    </LightBody>
+    </DoorBody>
   );
 }
 

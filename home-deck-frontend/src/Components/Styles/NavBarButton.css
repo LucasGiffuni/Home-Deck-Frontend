@@ -25,3 +25,32 @@
   opacity: 1;
   visibility: visible;
 }
+
+.LogoutButton {
+
+  background-image: url('./Resources/logout.png');
+  min-width: 56px;
+  min-height: 56px;
+  transform: scale(.85);
+  background-size: contain;
+
+}
+
+.DashboardButton {
+
+  background-image: url('./Resources/icons8-browser-homepage-64.png');
+  min-width: 56px;
+  min-height: 56px;
+  transform: scale(.86);
+  background-size: contain;
+
+}
+
+.SettingsButton {
+
+  background-image: url('./Resources/setting.png');
+  min-width: 56px;
+  min-height: 56px;
+  transform: scale(.85);
+  background-size: contain;
+}

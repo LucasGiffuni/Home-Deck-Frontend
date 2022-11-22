@@ -1,7 +1,5 @@
-/* eslint-disable */
-
 import React, { Component } from 'react'
-import '../Styles/LightBulbRoundedImage.css'
+import '../Styles/ShadeRoundedImage.css'
 import styled from 'styled-components';
 
 
@@ -11,7 +9,7 @@ const Button = styled.div`
     border-radius: 50px;
     height: 50px;
     width: 50px;
-    background-color: ${props => (props.checkedValue ? " rgba(246, 135, 51, 1)" : "#2e2e2e")}; 
+    background-color: ${props => (props.checkedValue ? " rgb(43, 191, 226, 1)" : "#2e2e2e")}; 
 
     margin: 10%;
     box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.2),
@@ -34,7 +32,7 @@ const ButtonBody = styled.div`
 
 `;
 
-export default class LightBulbRoundedImage extends Component {
+export default class ShadeRoundedImage extends Component {
 
 
     render() {

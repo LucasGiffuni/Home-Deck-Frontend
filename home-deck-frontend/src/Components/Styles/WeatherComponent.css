@@ -1,155 +1,96 @@
-.WeatherCardBody {
-    border-radius: 1.5rem;
-    border-color: rgba(238, 237, 237, 0.438);
-    box-shadow: 5px 8px 10px #80808033;
-
-    height: 45%;
-    width: 100%;
-    /*transform: translate(200%, 50%);*/
-    background: rgba(0, 0, 0, 0.15) /* Green background with 30% opacity */
-
-
-}
-
-
-
-
-.temperatureNumber {
-    text-align: center;
-    margin-top: 5%;
-    padding-left: 8%;
-
-    font-size: 2.5vw;
-    src: url('Resources/Simple-regular.ttf') format("opentype");
-    color: #cccccc;
-
-}
-
-.weatherCity {
-    text-align: center;
-    padding-top: 5%;
-
-    src: url('Resources/Simple-light.ttf') format("opentype");
-    font-size: 1vw;
-    color: #cccccc;
-}
-
-.weatherImage {
-    background-image: url('./Resources/WeatherSun.gif');
-    background-size: 100%;
-    background-position: center center;
-    background-size: 100% 100%;
-    width: 35%;
-    height: 23%;
-    display: block;
-    margin: auto;
-}
-
-.weatherDesc {
-    text-align: center;
-    margin-top: -10%;
-
-    src: url('Resources/Simple-light.ttf') format("opentype");
-    font-size: 1.2rem;
-    color: #cccccc;
-
-}
-
-.weatherSeparator {
-    margin-top: 20%;
-
-    src: url('Resources/Simple-light.ttf') format("opentype");
-    font-size: 1.2rem;
-    color: black;
-
-}
-
-.todayWeatherInfo {
-    src: url('Resources/Simple-regular.ttf') format("opentype");
-    font-size: .8rem;
-    display: grid;
-    color: #cccccc;
-
+.Weather {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
-}
-
-.one {
-    grid-area: 1 / 1 / 4 / 2;
-    text-align: center;
-
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
 
 }
 
-.two {
-    grid-area: 1 / 2 / 4 / 3;
-    text-align: center;
-
+.WeatherImage {
+    grid-area: 1 / 1 / 2 / 2;
+    background-image: url('./Resources/WeatherIcons/cloudySun.png');
+    background-size: cover;
+    margin-top: -15%;
 }
 
-.thre {
-    grid-area: 1 / 3 / 4 / 4;
-    text-align: center;
+.WeatherInfo {
+    grid-area: 1 / 2 / 2 / 3;
 
+    color: #fff;
+    margin-top: 13%;
 }
 
-.weatherSun {
-    background-image: url('./Resources/WeatherSun.gif');
-    background-size: 100%;
-    background-position: center center;
-    background-size: 100% 100%;
-    width: 30%;
-    height: 40%;
-    display: block;
-    margin: auto;
-    margin-top: -10%;
+.WeatherDegree {
+    grid-area: 1 / 3 / 2 / 4;
 
+    text-align: right;
+    color: #fff;
+    margin-top: 13%;
+    margin-right: 10%;
 }
 
-.weatherStorm {
-    background-image: url('./Resources/WeatherStorm.gif');
-    background-size: 100%;
-    background-position: center center;
-    background-size: 100% 100%;
-    width: 30%;
-    height: 40%;
-    display: block;
-    margin: auto;
-    margin-top: -10%;
 
-}
-
-.weatherRainfall {
-    background-image: url('./Resources/WeatherRinfall.gif');
-    background-size: 100%;
-    background-position: center center;
-    background-color: #cccccc;
-    background-size: 100% 100%;
-    width: 30%;
-    height: 40%;
-    display: block;
-    margin: auto;
+.Drizzle {
+    grid-area: 1 / 1 / 2 / 2;
+    background-image: url('./Resources/WeatherIcons/littleRain.png');
+    background-size: cover;
     margin-top: -10%;
 }
 
-.weatherWindy {
-    background-image: url('./Resources/WeatherWindy.gif');
-    background-size: 100%;
-    background-position: center center;
-    background-size: 100% 100%;
-    width: 30%;
-    height: 40%;
-    display: block;
-    margin: auto;
-    margin-top: -10%;
-
+.Rain {
+    grid-area: 1 / 1 / 2 / 2;
+    background-image: url('./Resources/WeatherIcons/littleRain.png');
+    background-size: cover;
+    margin-top: -15%;
 }
 
-.weatherDegree {
-    margin-top: 0%;
-
+.Thunderstorm {
+    grid-area: 1 / 1 / 2 / 2;
+    background-image: url('./Resources/WeatherIcons/strongStorm.png');
+    background-size: cover;
+    margin-top: -15%;
 }
+
+.Clear {
+    grid-area: 1 / 1 / 2 / 2;
+    background-image: url('./Resources/WeatherIcons/sun.png');
+    background-size: cover;
+    margin-top: -15%;
+}
+
+.Clouds {
+    grid-area: 1 / 1 / 2 / 2;
+    background-image: url('./Resources/WeatherIcons/cloudyDay.png');
+    background-size: cover;
+    margin-top: -15%;
+}
+
+.Mist {
+    grid-area: 1 / 1 / 2 / 2;
+    background-image: url('./Resources/WeatherIcons/cloudyDay.png');
+    background-size: cover;
+    margin-top: -15%;
+}
+
+
+/*
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 6; }
+.div2 { grid-area: 2 / 1 / 3 / 2; }
+.div3 { grid-area: 2 / 2 / 3 / 3; }
+.div4 { grid-area: 2 / 3 / 3 / 4; }
+.div5 { grid-area: 2 / 4 / 3 / 5; }
+.div6 { grid-area: 2 / 5 / 3 / 6; }
+*/

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import './Styles/LoginScreen.css';
 
 import styled from 'styled-components';
-import { validateUser } from './Services/UserService';
+import { getWeather } from './Services/UserService';
 import Alert from 'react-bootstrap/Alert';
 
 
@@ -121,6 +121,8 @@ function LoginScreen(props) {
                 <div className="buttons">
                     <button onClick={handleSubmitClick}>Sign in</button>
                 </div>
+                <ThrowInvalidLoginAlert />
+
             </div>
 
         </div>

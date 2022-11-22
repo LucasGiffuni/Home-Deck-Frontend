@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import ShadeDeviceComponent from './ShadeDeviceComponent'
+import DoorComponent from '../Doors/DoorDeviceComponent'
 
-const ShadeComponent = styled.div`   
+const DoorComponentStyle = styled.div`   
 
     grid-area: ${props => (props.gridArea)};
 
@@ -43,9 +43,9 @@ export default class ShadeDashboard extends Component {
         const { gridValue, componentName } = this.props;
 
         return (
-            <ShadeComponent checked={this.state.ShadeComponentState} gridArea={gridValue} onChange={eventhandler} id='Shade1'>
-                <ShadeDeviceComponent text={componentName} />
-            </ShadeComponent>
+            <DoorComponentStyle checked={this.state.ShadeComponentState} gridArea={gridValue} onChange={eventhandler} id='Shade1'>
+                <DoorComponent text={componentName} />
+            </DoorComponentStyle>
         )
     }
 

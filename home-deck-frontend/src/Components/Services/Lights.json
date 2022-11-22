@@ -3,50 +3,65 @@
     "Lights": [
         {
             "id": 1,
-            "name": "light1",
+            "name": "Light 1",
             "gridSite": "1 / 1 / 2 / 2",
+            "lightBrightness":0,
             "state": true
         },
         {
             "id": 2,
-            "name": "light2",
+            "name": "Light 2",
             "gridSite": "1 / 2 / 2 / 3",
+            "lightBrightness":10,
+
             "state": true
         },
         {
             "id": 3,
-            "name": "light3",
+            "name": "Light 3",
             "gridSite": "2 / 1 / 3 / 2",
+            "lightBrightness":100,
+
             "state": true
         },
         {
             "id": 4,
-            "name": "light4",
+            "name": "Light 4",
             "gridSite": "2 / 2 / 3 / 3",
+            "lightBrightness":25,
+
             "state": true
         },
         {
             "id": 5,
-            "name": "light5",
+            "name": "Light 5",
             "gridSite": "1 / 1 / 2 / 2",
+            "lightBrightness":25,
+
             "state": true
         },
         {
             "id": 6,
-            "name": "light6",
+            "name": "Light 6",
             "gridSite": "1 / 2 / 2 / 3",
+            "lightBrightness":0,
+
             "state": true
         },
         {
             "id": 7,
-            "name": "light7",
+            "name": "Light 7",
             "gridSite": "2 / 1 / 3 / 2",
+            "lightBrightness":0,
+
             "state": true
         },
         {
             "id": 8,
-            "name": "light8",
+            "name": "Light 8",
             "gridSite": "2 / 2 / 3 / 3",
+            "lightBrightness":40,
+
             "state": true
         }
         

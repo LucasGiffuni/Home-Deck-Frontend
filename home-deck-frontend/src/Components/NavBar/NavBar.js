@@ -23,17 +23,28 @@ const NavBarContainer = styled.div`
 
 export default class NavBar extends Component {
 
+    constructor(props) {
+        super(props);
+    }
 
+
+
+ 
 
     render() {
+
+        const nose = (Button) => {
+            this.props.handleButton(Button)
+        }
 
 
         return (
             <NavBarContainer>
 
-                <NavBarButton gridSite={"1 / 1 / 2 / 2"} id={"DashboardButton"} />
-                <NavBarButton gridSite={"12 / 1 / 13 / 2"} id={"SettingsButton"} />
-                <NavBarButton gridSite={"11 / 1 / 12 / 2"} id={"LogoutButton"} />
+                <NavBarButton gridSite={"1 / 1 / 2 / 2"} id={"DashboardButton"} type={"DashboardButton"} aux={nose} />
+                <NavBarButton gridSite={"2 / 1 / 3 / 2"} id={"RoomButton"} type={"RoomButton"} aux={nose} />
+                <NavBarButton gridSite={"12 / 1 / 13 / 2"} id={"SettingsButton"} type={"SettingsButton"} aux={nose} />
+                <NavBarButton gridSite={"11 / 1 / 12 / 2"} id={"LogoutButton"} type={"LogoutButton"} aux={nose} />
 
 
 

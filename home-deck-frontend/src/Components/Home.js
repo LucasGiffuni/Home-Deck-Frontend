@@ -10,7 +10,8 @@ import LightsDashboard from './Lights/LightsDashboard'
 import ShadesDashboard from './Shades/ShadesDashboard'
 import TemperatureDashboard from './Temperature/TemperatureDashboard';
 import NavBar from './NavBar/NavBar';
-
+import OverviewDashboard from './Overview/OverviewDashboard';
+import Room from './Room/Room.js';
 
 
 class Home extends Component {
@@ -19,7 +20,8 @@ class Home extends Component {
     state = {
         logged: false,
         jwtToken: "",
-        loginNotification: true
+        roomButton: false,
+        dashboardButton: true
 
     };
 
@@ -39,14 +41,51 @@ class Home extends Component {
     }
 
 
+    renderRoom = () => {
+
+        return (
+            <div className='RoomStyle'>
+                <Room />
+                <div className='NavBarContainer' id='NavBarContainer'>
+                    <NavBar handleButton={this.handleNavBarButton} />
+                </div>
+            </div>
+        );
+    }
+
+    handleNavBarButton = (Button) => {
+        console.log(Button)
+        console.log(this.state)
+
+        if (Button === "LogoutButton") {
+            this.setState({
+                logged: false
+            });
+        } else if (Button === "RoomButton") {
+            this.setState({
+                roomButton: true,
+                dashboardButton: false,
+
+            });
+        } else if (Button === "DashboardButton") {
+            this.setState({
+                dashboardButton: true,
+                roomButton: false,
+
+            });
+        }else{
+            this.setState({
+                roomButton: false,
+                dashboardButton: true
+
+            });
+        }
+    }
+
+
+
 
     renderDashboard = () => {
-
-
-
-
-
-
 
         function ThrowInvalidLoginAlert() {
             let setVisible = true;
@@ -67,12 +106,11 @@ class Home extends Component {
         }
 
 
-
-
         return (
             <div className='ScreenStyle'>
-                <div className='NavBarContainer' id='NavBarContainer'>
-                    <NavBar />
+
+                <div className='OverviewDashboard'>
+                    <OverviewDashboard />
                 </div>
 
                 <div className='ShadesContainer' id='ShadesContainer'>
@@ -92,15 +130,29 @@ class Home extends Component {
 
                     <LightsDashboard />
                 </div>
+
+
+                <div className='NavBarContainer' id='NavBarContainer'>
+                    <NavBar handleButton={this.handleNavBarButton} />
+                </div>
+
             </div>
         )
     }
 
 
-
     render() {
+        if (this.state.logged) {
+            if (this.state.roomButton) {
+                return this.renderRoom()
+            } else if (this.state.dashboardButton) {
+                console.log(this.state.dashboardButton)
+                return this.renderDashboard()
+            } 
+        } else {
+            return this.renderRoom()
+        }
 
-        return this.state.logged ? this.renderDashboard() : this.renderLogin();
     }
 }
 

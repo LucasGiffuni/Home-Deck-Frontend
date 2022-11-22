@@ -27,23 +27,48 @@ const ButtonContainer = styled.div`
     :hover {
         background-color: #323449;
     }
+
+
+
+    background-color : ${props => (props.state ? "#323449 " : "")};
 `;
 
 
 
 export default class NavBarButton extends Component {
+    constructor(props) {
+        super(props);
+    }
+    state = {
+        ButtonState: false,
+        ButtonIdentifier: ""
 
+    };
 
+    static getDerivedStateFromProps(props, state) {
+        return {
+            ButtonIdentifier: props.type,
+        };
+
+    }
 
     render() {
-        const { gridSite } = this.props;
+
+
+        const { gridSite, type } = this.props;
+
+        const eventhandler = () => {
+            this.setState({
+                ButtonState: !this.state.ButtonState
+
+            });
+            this.props.aux(this.state.ButtonIdentifier)
+        }
 
 
         return (
 
-            <ButtonContainer  gridArea={gridSite}>
-
-
+            <ButtonContainer className={type} gridArea={gridSite} onClick={eventhandler} state={this.state.ButtonState}>
             </ButtonContainer>
 
         )

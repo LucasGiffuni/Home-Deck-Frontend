@@ -1,11 +1,8 @@
 .light-image {
   align-items: center;
-  background-image: url('./Resources/LightBulb.png');
+  background-image: url('./Resources/Lock.png');
 
-  max-width: 48px;
-  min-height: 48px;
-  margin: auto;
-  margin-top: 10%;
+ 
 
 }
 

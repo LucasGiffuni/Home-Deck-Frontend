@@ -2,25 +2,24 @@
     display: grid;
 
 }
-.carousel-item.active{
+
+.carousel-item.active {
     display: grid;
 }
-.carousel-item-next{
+
+.carousel-item-next {
     display: grid;
 }
-.carousel-item-end{
+
+.carousel-item-end {
     display: grid;
 }
-.carousel-control-prev{
-    left: -8%;
 
-}
-.carousel-control-next{
-    right: -8%;
+.carousel-control-prev {}
 
+.carousel-control-next {}
 
-}
-.carousel-indicators{
+.carousel-indicators {
     bottom: 0;
     margin-bottom: -1rem;
 }
