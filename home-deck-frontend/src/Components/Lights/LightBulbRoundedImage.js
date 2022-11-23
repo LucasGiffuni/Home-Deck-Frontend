@@ -29,8 +29,8 @@ const ButtonBody = styled.div`
 
     text-align: left;
     color: white;
-    margin: auto;
-    margin-left: 24%;
+    margin-right: 5%;
+    
 
 `;
 
@@ -42,7 +42,7 @@ export default class LightBulbRoundedImage extends Component {
         return (
             <ButtonBody id='imageBody'>
                 <Button checkedValue={checked} id='image'>
-                    <div className='img'></div>
+                    <div className='light-image'></div>
                 </Button>
             </ButtonBody>
         )

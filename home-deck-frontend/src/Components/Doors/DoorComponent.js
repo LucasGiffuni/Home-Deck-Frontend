@@ -40,7 +40,7 @@ export default class ShadeDashboard extends Component {
 
 
 
-        const { gridValue, componentName } = this.props;
+        const { gridValue, componentName  } = this.props;
 
         return (
             <DoorComponentStyle checked={this.state.ShadeComponentState} gridArea={gridValue} onChange={eventhandler} id='Shade1'>

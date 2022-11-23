@@ -1,9 +1,12 @@
-.light-image {
+.Lock-image {
   align-items: center;
   background-image: url('./Resources/Lock.png');
 
 
+  background-size: cover;
 
+   
+  transform: scale(.85);
 }
 
 .toggle-switch {

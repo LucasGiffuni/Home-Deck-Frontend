@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../Styles/ShadeRoundedImage.css'
+import '../Styles/DoorDeviceComponent.css'
 import styled from 'styled-components';
 
 
@@ -36,11 +36,11 @@ export default class ShadeRoundedImage extends Component {
 
 
     render() {
-        const { checked } = this.props;
+        const { checked,state } = this.props;
         return (
             <ButtonBody id='imageBody'>
-                <Button checkedValue={checked} id='image'>
-                    <div className='img'></div>
+                <Button checkedValue={checked || state} id='image'>
+                    <div className='Lock-image'></div>
                 </Button>
             </ButtonBody>
         )

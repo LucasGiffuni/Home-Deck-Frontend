@@ -63,23 +63,21 @@
     width: 100%;
 
 }
-.react-grid-item{
-background-color: white;
+
+.react-grid-item {
+    background-color: #313b41;
 }
+
 .Preview {
-    /*
+
     grid-area: 1 / 1 / 4 / 4;
     background-color: #1f262a;
     border-radius: 10px;
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+
     border: 1px solid black;
-    */
+
     /* try border-left and border-right */
-    
+
 }
 
 .carousel-control-prev {
@@ -92,4 +90,211 @@ background-color: white;
 
 .carousel-indicators {
     margin-bottom: 0px;
+}
+
+
+
+
+
+.Room {
+    position: relative;
+
+    margin: auto;
+    margin-top: 50px;
+
+    width: 90%;
+    height: 650px;
+}
+
+.PuertaPrincipal {
+    position: absolute;
+    height: 25.6%;
+    margin-top: 19.7%;
+    width: 8px;
+    border: 4px solid rgb(43, 191, 226, 1);
+
+}
+
+.ImagenPuertaPrincipal {
+    position: absolute;
+
+    margin-top: 50px;
+    margin-left: -40px;
+
+}
+
+.Pared {
+    position: absolute;
+    height: 8px;
+    margin-top: -8px;
+    margin-left: 25%;
+    width: 20%;
+    border: 4px solid rgb(0, 0, 0);
+}
+
+.BathRoom {
+    position: absolute;
+    width: 30%;
+    margin-top: -8px;
+    top: 0;
+
+    height: 200px;
+    border: 8px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PuertaBaño1 {
+    position: absolute;
+    bottom: 0;
+    height: 8px;
+    width: 50px;
+    margin-bottom: -8px;
+    border: 4px solid #1f262a;
+}
+
+.Room1 {
+    position: absolute;
+
+    width: 40%;
+    height: 300px;
+    bottom: 0;
+    margin-bottom: -8px;
+    border: 8px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.VentanaCuarto1 {
+    position: absolute;
+    left: 0;
+    margin-left: -8px;
+    height: 50%;
+    border: 4px solid green;
+}
+
+.PuertaCuarto1 {
+    position: absolute;
+    top: 0;
+    margin-top: -8px;
+    height: 8px;
+    width: 30%;
+    border: 4px solid #1f262a;
+}
+
+
+
+
+.Comedor {
+    position: absolute;
+
+    right: 12.5%;
+    top: 0;
+    margin-top: -8px;
+    margin-right: -8px;
+
+    height: 408px;
+    width: 50%;
+
+    border: 8px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.VentanaComedor {
+    position: absolute;
+    right: 0;
+    margin-right: -8px;
+    height: 70%;
+    border: 4px solid green;
+}
+
+
+.Sala {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+    margin-bottom: -8px;
+
+    height: 40.8%;
+    width: 61.6%;
+
+    border: 8px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.VentanaSala {
+    position: absolute;
+    right: 0;
+    margin-right: -8px;
+    height: 70%;
+    border: 4px solid green;
+}
+
+.PuertaSala {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: -8px;
+    margin-right: 1.5%;
+    width: 15%;
+    height: 0;
+    border: 4px solid rgb(43, 191, 226, 1);
+}
+
+.ImagenPuertaPrincipal {
+    position: absolute;
+
+    margin-top: 50px;
+    margin-left: -40px;
+
+}
+.ImagenPuertaSala {
+    position: absolute;
+
+    margin-top: -30px;
+    margin-left: 0;
+
+}
+
+.PuertaSala2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: -10px;
+    margin-left: 8px;
+    height: 10px;
+    width: 30%;
+    border: 5px solid #1f262a;
+}
+
+
+.Cocina {
+    position: absolute;
+
+    left: 28.5%;
+    top: 0;
+    margin-right: -8px;
+
+    height: 250px;
+    width: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PuertaComedor {
+    position: absolute;
+    left: 0;
+    margin-left: -8px;
+    margin-top: -35px;
+    height: 91.5%;
+    border: 4px solid #1f262a;
 }

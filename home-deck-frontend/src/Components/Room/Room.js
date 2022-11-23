@@ -7,12 +7,11 @@ import Carousel from 'react-bootstrap/Carousel';
 import DoorComponent from '../Doors/DoorComponent'
 import Weather from '../Weather/Weather';
 
-import GridLayout from "react-grid-layout";
+import RoomPlane from './RoomPlane'
 
 
 
 const block = styled.div`
-    background-color: white;
 `;
 
 export default class Room
@@ -34,30 +33,15 @@ export default class Room
 
 
     render() {
-        const layout = [
-            { i: "a", x: 0, y: 0, w: 1, h: 2, static: false },
-            { i: "b", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
-            { i: "c", x: 4, y: 0, w: 1, h: 2 }
-        ];
-
 
         return (
             <div>
 
                 <div className='RoomStyle'>
                     <div className='Preview'>
-                        <GridLayout
-                            className="layout"
-                            layout={layout}
-                            cols={20}
-                            rowHeight={20}
-                            width={700}
-                            height={760}
-                        >
-                            <block key="a">a</block>
-                            <block key="b">b</block>
-                            <block key="c">c</block>
-                        </GridLayout>
+
+                        <RoomPlane />
+
                     </div>
                     <div className='Devices'>
                         <RoomDevices />

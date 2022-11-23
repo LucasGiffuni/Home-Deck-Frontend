@@ -1,17 +1,9 @@
-
-.img {
+.light-image {
     align-items: center;
 
     background-image: url('./Resources/LightBulb.png');
-    min-width: 48px;
-    max-width: 48px;
-    min-height: 48px;
-    max-height: 48px;
-
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
-    transform: scale(.7);
+    background-size: cover;
+    transform: scale(.8);
 }
 
 
