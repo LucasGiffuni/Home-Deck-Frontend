@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import '../Styles/RoomDevices.css'
 import Form from 'react-bootstrap/Form';
 import RangeSlider from 'react-bootstrap-range-slider';
+import { modifyValue } from '../Services/DevicesService';
 
 
 //https://react-bootstrap.netlify.app/forms/checks-radios/#switches
@@ -42,25 +43,39 @@ const Switch = styled.label`
 
 function Device(props) {
 
-    const [isToggled, setIsToggled] = useState({
-        value: false
-
-    });
-    const onToggle = () => setIsToggled(!isToggled);
+    const [isToggled, setIsToggled] = useState(props.deviceState);
+    const [value, setValue] = useState(props.value);
 
     React.useEffect(() => {
+
         if (props.onChange) {
             props.onChange(isToggled)
         }
-    }, [isToggled.value])
+        props.mod(isToggled);
+
+    }, [isToggled])
+
+
+    const onToggle = () => {
+
+        setIsToggled(!isToggled)
+
+        const response = modifyValue(props.token, props.id, "state", !isToggled).then(data => {
+
+            console.log(data)
+        })
+
+
+
+    };
 
 
 
 
-    const [value, setValue] = useState(props.value);
 
 
     return (
+
         <LightBody >
             <Button id='DeviceBody'>
 

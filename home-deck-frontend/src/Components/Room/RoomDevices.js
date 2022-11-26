@@ -5,8 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Device from './Device';
 
 import '../Styles/RoomDevices.css'
-import lightsData from "../Services/Lights.json"
-
+import { getLightDevices } from '../Services/DevicesService';
 
 
 
@@ -16,27 +15,55 @@ export default class RoomDevices
     extends Component {
 
     state = {
-        items: lightsData.Lights,
+        dataFetched: false,
+        lightsData: "",
+        jwtToken: ""
     };
 
- 
+
+
+
+    fetchData() {
+        const { token } = this.props;
+
+        const response = getLightDevices(token).then(data => {
+            this.setState({
+                lightsData: data[1].lights,
+                dataFetched: true
+            });
+        })
+    }
 
 
     render() {
-   
+
+        const { token } = this.props;
+
+        let lights = []
+        if (!this.state.dataFetched) {
+            this.fetchData()
+        } else {
+            lights = this.state.lightsData
+        }
         return (
             <div className='RoomDevicesStyle'>
                 <h1 className='Title'>Devices</h1>
                 <InfiniteScroll
-                className='infinite-scroll-component'
-                    dataLength={this.state.items.length}
+                    className='infinite-scroll-component'
+                    dataLength={this.state.lightsData.length}
                     hasMore={true}
                     loader={<h4>Loading...</h4>}
                     height={230}
                 >
-                    {this.state.items.map((i, index) => (
-                        <Device key={index} text={i.name} value={i.lightBrightness} />
-                    ))}
+
+                    {
+                        this.state.dataFetched
+                            ?
+                            lights.map((i, index) => (
+                                <Device key={index} token={token} id={i.id} text={i.name} value={i.lightBrightness} deviceState={i.state} mod={this.props.changeDetected} />
+                            ))
+                            : ""
+                    }
                 </InfiniteScroll>
             </div>
         )
@@ -44,3 +71,9 @@ export default class RoomDevices
     }
 
 }
+
+/*
+ {this.state.items.map((i, index) => (
+                        <Device key={index} text={i.name} value={i.lightBrightness} />
+                    ))}
+                    */

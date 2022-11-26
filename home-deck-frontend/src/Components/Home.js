@@ -45,7 +45,7 @@ class Home extends Component {
 
         return (
             <div className='RoomStyle'>
-                <Room />
+                <Room  token={this.state.jwtToken}/>
                 <div className='NavBarContainer' id='NavBarContainer'>
                     <NavBar handleButton={this.handleNavBarButton} />
                 </div>
@@ -146,11 +146,10 @@ class Home extends Component {
             if (this.state.roomButton) {
                 return this.renderRoom()
             } else if (this.state.dashboardButton) {
-                console.log(this.state.dashboardButton)
-                return this.renderDashboard()
+                return this.renderRoom()
             } 
         } else {
-            return this.renderRoom()
+            return this.renderLogin()
         }
 
     }

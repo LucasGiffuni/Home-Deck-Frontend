@@ -11,14 +11,18 @@ import RoomPlane from './RoomPlane'
 
 
 
-const block = styled.div`
-`;
-
 export default class Room
     extends Component {
 
+    state = {
+        lightsDataFetched: false,
+        lightsData: "",
+        mod: true
+
+    };
+
+
     handleNavBarButton = (Button) => {
-        console.log(Button)
 
         if (Button === "LogoutButton") {
             this.setState({
@@ -32,7 +36,25 @@ export default class Room
     }
 
 
+    handleLightsData = (data) => {
+
+        this.setState({
+            lightsData: data,
+            lightsDataFetched: true
+        });
+    }
+
+    handleChangeDetected = (bool) => {
+
+        this.setState({
+            mod: bool
+
+        });
+    }
+
     render() {
+        const { token } = this.props;
+
 
         return (
             <div>
@@ -40,11 +62,12 @@ export default class Room
                 <div className='RoomStyle'>
                     <div className='Preview'>
 
-                        <RoomPlane />
+
+                        <RoomPlane token={token} changeDetected={this.state.mod} />
 
                     </div>
                     <div className='Devices'>
-                        <RoomDevices />
+                        <RoomDevices token={token} changeDetected={this.handleChangeDetected} />
 
                     </div>
                     <div className='Temperature'>
