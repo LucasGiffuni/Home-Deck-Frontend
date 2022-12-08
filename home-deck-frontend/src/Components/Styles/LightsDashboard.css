@@ -5,6 +5,8 @@
 
 .carousel-item.active {
     display: grid;
+    align-items: center;
+    justify-items: center;
 }
 
 .carousel-item-next {

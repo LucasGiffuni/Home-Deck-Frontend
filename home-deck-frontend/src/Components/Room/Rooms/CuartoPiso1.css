@@ -1,0 +1,59 @@
+.Ventana {
+    position: absolute;
+    left: 0;
+    margin-left: -10px;
+    top: 25%;
+    height: 50%;
+    border: 5px solid green;
+}
+
+.Puerta {
+    position: absolute;
+    margin-top: -10px;
+    top: 0;
+    left: 35%;
+    width: 30%;
+    border: 5px solid #1f262a;
+}
+
+.Lights {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translateY(-50%) translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.RoomBody {
+    position: relative;
+
+    margin: auto;
+
+    min-height: 100%;
+
+
+    border: 10px solid black;
+}
+.Room1Body {
+    position: relative;
+
+    margin: auto;
+
+    min-height: 100%;
+
+
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-left: 10px solid black;
+
+}
+
+.RoomBody:hover {
+    transform: scale(1.01);
+}
+.Room1Body:hover {
+    transform: scale(1.01);
+}

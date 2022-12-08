@@ -34,7 +34,7 @@ const Button = styled.div`
 `;
 
 
-export default class LightBulbRoundedImage extends Component {
+export default class LampsRoundedImage extends Component {
 
 
     render() {
@@ -42,7 +42,7 @@ export default class LightBulbRoundedImage extends Component {
         return (
             <ButtonBody id='imageBody'>
                 <Button checkedValue={checked} id='image'>
-                    <div className='light-image'></div>
+                    <div className='lamp-image'></div>
                 </Button>
             </ButtonBody>
         )

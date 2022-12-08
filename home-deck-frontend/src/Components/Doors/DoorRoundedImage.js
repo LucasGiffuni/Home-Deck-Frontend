@@ -6,9 +6,9 @@ import styled from 'styled-components';
 
 
 const Button = styled.div`   
-    border-radius: 50px;
-    height: 50px;
-    width: 50px;
+    border-radius: 30px;
+    height: 35px;
+    width: 35px;
     background-color: ${props => (props.checkedValue ? " rgb(43, 191, 226, 1)" : "#2e2e2e")}; 
 
     margin: 10%;
@@ -25,10 +25,12 @@ const Button = styled.div`
 `;
 const ButtonBody = styled.div`
 
-    text-align: left;
+display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    margin: auto;
-    margin-left: 24%;
+    height: 100%;
+    width: 100%;
 
 `;
 
@@ -36,7 +38,7 @@ export default class ShadeRoundedImage extends Component {
 
 
     render() {
-        const { checked,state } = this.props;
+        const { checked, state } = this.props;
         return (
             <ButtonBody id='imageBody'>
                 <Button checkedValue={checked || state} id='image'>

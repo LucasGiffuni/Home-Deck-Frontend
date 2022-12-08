@@ -1,0 +1,26 @@
+.VentanaComedorCocina {
+    position: absolute;
+    right: 0;
+    top: 12.5%;
+    margin-right: -10px;
+    height: 75%;
+    border: 5px solid green;
+}
+
+
+.ComedorCocinaBody {
+    position: relative;
+
+    margin: auto;
+
+    min-height: 100%;
+
+
+    border-top: 10px solid black;
+    border-right: 10px solid black;
+
+}
+
+.ComedorCocinaBody:hover {
+    transform: scale(1.01);
+}

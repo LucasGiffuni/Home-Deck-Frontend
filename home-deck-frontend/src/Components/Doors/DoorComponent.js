@@ -16,7 +16,6 @@ const DoorComponentStyle = styled.div`
     box-shadow: ${props => (props.checked ? "0px 0px 9px 4px rgba(43, 191, 226,0.48)" : "0px 0px 9px 4px rgba(0,0,0,0.48)")}; 
 
     margin-right: 10px;
-    margin-left: 10px;
 
     margin-bottom: 10px;
     margin-top: 10px;
@@ -27,7 +26,7 @@ export default class ShadeDashboard extends Component {
 
 
     state = {
-       ShadeComponentState: true
+        ShadeComponentState: this.props.deviceState
     };
 
 
@@ -40,11 +39,12 @@ export default class ShadeDashboard extends Component {
 
 
 
-        const { gridValue, componentName  } = this.props;
+        const { gridValue, componentName, token, id, deviceState } = this.props;
 
         return (
+
             <DoorComponentStyle checked={this.state.ShadeComponentState} gridArea={gridValue} onChange={eventhandler} id='Shade1'>
-                <DoorComponent text={componentName} />
+                <DoorComponent text={componentName} id={id}  token={token} deviceState={deviceState}  mod={this.props.mod}/>
             </DoorComponentStyle>
         )
     }

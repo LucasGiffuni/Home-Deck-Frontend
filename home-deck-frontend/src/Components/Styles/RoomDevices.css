@@ -57,8 +57,9 @@
 }
 
 .infinite-scroll-component {
-    width: 475px;
-    height: 230px;
+    width: 90%;
+    height: 90vh;
+    margin-left: 2%
 }
 
 .range-slider__wrap {
@@ -66,7 +67,7 @@
     margin-left: 5%;
     accent-color: #F55050;
     margin-top: 2%;
-    
+
 
 
 }
@@ -79,8 +80,7 @@ input[type="range"] {
     width: 15rem;
 }
 
-.range-slider--primary {
-}
+.range-slider--primary {}
 
 .range-slider__wrap {
     grid-area: 1 / 4 / 2 / 5;
@@ -96,9 +96,7 @@ input[type="range"] {
     grid-area: 1 / 2 / 2 / 3;
 
     height: 25px;
-    margin-left: -10%;
-    margin-right: 0px;
-    margin-left: 0px;
+   
 }
 
 .toggle-switch input[type="checkbox"] {

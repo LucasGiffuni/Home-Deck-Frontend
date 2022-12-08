@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import '../Styles/RoomDevices.css'
 import Form from 'react-bootstrap/Form';
 import RangeSlider from 'react-bootstrap-range-slider';
-import { modifyValue } from '../Services/DevicesService';
+import { modifyLightDevice } from '../Services/DevicesService';
 
 
 //https://react-bootstrap.netlify.app/forms/checks-radios/#switches
@@ -31,7 +31,6 @@ const DeviceName = styled.p`
     align-items: left;
     color: white;
     margin-top: 12%;
-    margin-left:10%;
 `;
 
 
@@ -60,7 +59,7 @@ function Device(props) {
 
         setIsToggled(!isToggled)
 
-        const response = modifyValue(props.token, props.id, "state", !isToggled).then(data => {
+        const response = modifyLightDevice(props.token, props.id, "state", !isToggled).then(data => {
 
             console.log(data)
         })

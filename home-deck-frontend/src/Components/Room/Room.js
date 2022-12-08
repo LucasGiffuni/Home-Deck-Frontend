@@ -3,11 +3,15 @@ import React, { Component } from 'react'
 import styled from 'styled-components';
 import RoomDevices from './RoomDevices';
 import '../Styles/Room.css'
-import Carousel from 'react-bootstrap/Carousel';
-import DoorComponent from '../Doors/DoorComponent'
 import Weather from '../Weather/Weather';
 
 import RoomPlane from './RoomPlane'
+import CuartoPiso1 from './Rooms/CuartoPiso1'
+import BañoPiso1 from './Rooms/BañoPiso1';
+import OpensDevices from './OpensDevices';
+import ComedorCocina from './Rooms/ComedorCocina';
+import SalaEstar from './Rooms/SalaEstar';
+import PasilloPiso1 from './Rooms/PasilloPiso1';
 
 
 
@@ -62,47 +66,43 @@ export default class Room
                 <div className='RoomStyle'>
                     <div className='Preview'>
 
+                        <div className='Banio'>
+                            <BañoPiso1 token={token} changeDetected={this.state.mod} />
 
-                        <RoomPlane token={token} changeDetected={this.state.mod} />
+                        </div>
+                        <div className='CuartoNuestro'>
+                            <CuartoPiso1 token={token} changeDetected={this.state.mod} />
 
+                        </div>
+                        <div className='ComedorCocina'>
+                            <ComedorCocina token={token} changeDetected={this.state.mod} />
+
+                        </div>
+                        <div className='SalaEstar'>
+                            <SalaEstar token={token} changeDetected={this.state.mod} />
+
+                        </div>
+                        <div className='Pasillo'>
+                            <PasilloPiso1 token={token} changeDetected={this.state.mod}  />
+
+                        </div>
                     </div>
                     <div className='Devices'>
                         <RoomDevices token={token} changeDetected={this.handleChangeDetected} />
 
                     </div>
-                    <div className='Temperature'>
-
-                    </div>
-                    <div className='Weather'>
+                   
+                    <div className='WeatherContainer'>
                         <Weather />
                     </div>
-                    <div className='Entries'>
-
-                    </div>
+                    
 
                     <div className='Doors'>
-                        <Carousel interval={null}>
-                            <Carousel.Item >
-                                <DoorComponent key={1} gridValue={"1 / 1 / 2 / 2"} componentName={"nose 1"} />
-                                <DoorComponent key={2} gridValue={"1 / 2 / 2 / 3"} componentName={"nose 2"} />
-                                <DoorComponent key={3} gridValue={"1 / 3 / 2 / 4"} componentName={"nose 3"} />
-                                <DoorComponent key={4} gridValue={"1 / 4 / 2 / 5"} componentName={"nose 4"} />
 
-                            </Carousel.Item>
-                            <Carousel.Item >
-                                <DoorComponent key={5} gridValue={"1 / 1 / 2 / 2"} componentName={"nose"} />
-
-                            </Carousel.Item>
-                            <Carousel.Item >
-                                <DoorComponent key={6} gridValue={"1 / 1 / 2 / 2"} componentName={"nose"} />
-
-                            </Carousel.Item>
-                        </Carousel>
+                        <OpensDevices token={token} changeDetected={this.handleChangeDetected} />
 
                     </div>
-                    <div className='Example2'>
-
-                    </div>
+                   
 
                 </div>
 
@@ -113,3 +113,4 @@ export default class Room
     }
 
 }
+

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import '../Styles/DoorDeviceComponent.css'
+import { modifyOpenDevice } from '../Services/DevicesService';
 
 import RoundedImage from './DoorRoundedImage';
 
@@ -47,17 +48,29 @@ const DoorBody = styled.div`
 
 function SwitchExample(props) {
 
-  const [isToggled, setIsToggled] = useState({
-    value: false
+  const [isToggled, setIsToggled] = useState(props.deviceState);
 
-  });
-  const onToggle = () => setIsToggled(!isToggled);
+  const onToggle = () => {
+
+    setIsToggled(!isToggled)
+
+    const response = modifyOpenDevice(props.token, props.id, "state", !isToggled).then(data => {
+
+      console.log(data)
+    })
+
+
+
+  };
+
 
   React.useEffect(() => {
     if (props.onChange) {
       props.onChange(isToggled)
     }
-  }, [isToggled.value])
+    props.mod(isToggled);
+
+  }, [isToggled])
 
 
   return (

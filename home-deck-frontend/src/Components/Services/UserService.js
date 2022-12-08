@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function validateUser(user, passwd) {
 
-    let res = axios.post(`http://localhost:8080/public/authenticate?user=${user}&clave=${passwd}`)
+    let res = axios.post(`http://192.168.1.6:8080/public/authenticate?user=${user}&clave=${passwd}`)
         .then(response => {
             let serviceResponse = [];
 

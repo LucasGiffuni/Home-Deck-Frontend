@@ -45,10 +45,8 @@ class Home extends Component {
 
         return (
             <div className='RoomStyle'>
-                <Room  token={this.state.jwtToken}/>
-                <div className='NavBarContainer' id='NavBarContainer'>
-                    <NavBar handleButton={this.handleNavBarButton} />
-                </div>
+                <Room token={this.state.jwtToken} />
+                
             </div>
         );
     }
@@ -73,7 +71,7 @@ class Home extends Component {
                 roomButton: false,
 
             });
-        }else{
+        } else {
             this.setState({
                 roomButton: false,
                 dashboardButton: true
@@ -132,14 +130,16 @@ class Home extends Component {
                 </div>
 
 
-                <div className='NavBarContainer' id='NavBarContainer'>
-                    <NavBar handleButton={this.handleNavBarButton} />
-                </div>
+
 
             </div>
         )
     }
-
+    /*
+    <div className='NavBarContainer' id='NavBarContainer'>
+                        <NavBar handleButton={this.handleNavBarButton} />
+                    </div>
+    */
 
     render() {
         if (this.state.logged) {
@@ -147,7 +147,7 @@ class Home extends Component {
                 return this.renderRoom()
             } else if (this.state.dashboardButton) {
                 return this.renderRoom()
-            } 
+            }
         } else {
             return this.renderLogin()
         }

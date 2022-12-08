@@ -1,11 +1,17 @@
 .light-image {
     align-items: center;
 
-    background-image: url('./Resources/LightBulb.png');
+    background-image: url('./Resources/Lamp.png');
     background-size: cover;
     transform: scale(.8);
 }
+.lamp-image {
+    align-items: center;
 
+    background-image: url('./Resources/Lamp.png');
+    background-size: cover;
+    transform: scale(.8);
+}
 
 input[type="checkbox"] {
     height: 200px;
