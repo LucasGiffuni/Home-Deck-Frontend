@@ -13,31 +13,17 @@
 
 .Cameras {
 
-    grid-area: 3 / 4 / 4 / 6;
+    grid-area: 4 / 4 / 6 / 6;
     background-color: #1f262a;
     border-radius: 10px;
-    height: 300px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    
+    height: 250px;
 
+    margin-right: 1%;
+    margin-top: -35%;
 
 }
 
-.Camera1 {
-    grid-area: 1 / 1 / 2 / 2;
-
-    background-image: url('./Resources/Camera.png');
-    background-size: contain;
-    transform: scale(1);
-    margin-bottom: 100px;
-}
-
-.Camera2 {
-    grid-area: 1 / 2 / 2 / 3;
-}
 
 .Devices {
     grid-area: 2 / 4 / 3 / 6;

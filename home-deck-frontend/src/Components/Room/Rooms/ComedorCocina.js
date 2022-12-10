@@ -2,20 +2,18 @@
 import React, { Component, useState, useEffect } from 'react'
 
 
-import LightBulbRoundedImage from '../../Lights/LightBulbRoundedImage'
-import DoorRoundedImage from '../../Doors/DoorRoundedImage'
+import RoomPlaneItem from '../RoomPlaneItem'
+
 import { getLightsFromRoom, getOpensFromRoom, getLayoutFromRoom2, createLightDevice } from '../../Services/DevicesService';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import styled from 'styled-components';
 import '../Rooms/ComedorCocina.css'
-import LampRoundedImage from '../../Lamps/LampRoundedImage'
 
 
 
 import { Responsive, WidthProvider } from "react-grid-layout";
 const ResponsiveGridLayout = WidthProvider(Responsive);
-
 
 
 
@@ -124,9 +122,11 @@ function ComedorCocina(props) {
 
 
     function saveToLS(key, value) {
+        /*
         console.log(JSON.stringify({
             [key]: value
         }))
+        */
     }
 
 
@@ -147,6 +147,14 @@ function ComedorCocina(props) {
         }
         return layoutquery.layout[key];
     }
+
+
+    const renderTooltip = (props, text) => (
+        <Tooltip id="button-tooltip" {...props}>
+            {text}
+        </Tooltip>
+    );
+
     if ((luces.dataFetched && layoutquery.layoutFetched)) {
 
         return (
@@ -171,9 +179,21 @@ function ComedorCocina(props) {
 
                     {
                         Room1.map((i, index) => (
+
+
                             <div key={i.name} data-grid={{ i: i.name, x: 0, y: 0, w: 3, h: 3 }}>
-                                <LightBulbRoundedImage key={i.name} checked={i.state} />
+                                <OverlayTrigger
+                                    placement="right"
+                                    delay={{ show: 50, hide: 50 }}
+                                    overlay={renderTooltip(props, i.name)}
+                                >
+                                    <div>
+                                        <RoomPlaneItem key={i.name} checked={i.state} type={"light"} />
+
+                                    </div>
+                                </OverlayTrigger>
                             </div>
+
                         ))
                     }
                 </ResponsiveGridLayout >

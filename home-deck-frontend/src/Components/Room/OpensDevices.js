@@ -13,9 +13,13 @@ import { getOpenDevices } from '../Services/DevicesService';
 
 
 const DoorsBody = styled.div`
-  margin-left: 1%;
-  margin-right: 1%;
-`;
+
+  display: flex; 
+  justify-content: center;
+
+  
+  `;
+
 
 export default class OpensDevices
     extends Component {
@@ -46,42 +50,69 @@ export default class OpensDevices
         const { token } = this.props;
 
         let opens = []
+        let lights4 = opens;
+        let lightsMatrix = [];
+        let auxiliarArray = [];
+        let counter = 0;
+
+
         if (!this.state.dataFetched) {
             this.fetchData()
         } else {
-            opens = this.state.opensData
+            lights4 = this.state.opensData
+
+
+
+            for (let k = 0; k < lights4.length; k++) {
+                auxiliarArray.push(lights4[k]);
+                if (counter == 3) {
+                    lightsMatrix.push(auxiliarArray);
+                    auxiliarArray = [];
+                    counter = 0;
+                } else {
+                    counter++;
+                }
+            }
+
+
         }
-        return (
-            <DoorsBody >
-                <Carousel interval={null}>
-                    <Carousel.Item >
 
+
+        if (this.state.dataFetched) {
+
+            return (
+                <DoorsBody >
+                    <Carousel interval={null}>
                         {
-                            this.state.dataFetched
-                                ?
-                                opens.map((i, index) => (
-                                    <DoorComponent key={index} componentName={i.name} deviceState={i.state} token={token} gridValue={i.gridSite} id={i.id} mod={this.props.changeDetected} />
 
-                                ))
-                                : ""
+                            lightsMatrix.map((i, index) => (
+                                <Carousel.Item>
+                                    {
+                                        i.map((z, index) => (
+                                            <DoorComponent key={index} componentName={z.name} deviceState={z.state} token={token} gridValue={z.gridSite} id={z.id} mod={this.props.changeDetected} />
+
+                                        ))
+                                    }
+                                </Carousel.Item>
+                            ))
+
+
                         }
-                    </Carousel.Item>
-                    <Carousel.Item >
 
-                        {
-                            this.state.dataFetched
-                                ?
-                                opens.map((i, index) => (
-                                    <DoorComponent key={index} componentName={i.name} deviceState={i.state} token={token} gridValue={i.gridSite} id={i.id} mod={this.props.changeDetected} />
 
-                                ))
-                                : ""
-                        }
-                    </Carousel.Item>
-                </Carousel>
+                    </Carousel>
 
-            </DoorsBody>
-        )
+                </DoorsBody>
+            )
+
+        } else {
+            return (
+                <div>
+                    <div className="lds-facebook"><div></div><div></div><div></div></div>
+                </div>
+            )
+        }
+
 
     }
 

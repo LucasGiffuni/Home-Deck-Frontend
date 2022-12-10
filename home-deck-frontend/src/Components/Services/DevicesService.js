@@ -1,4 +1,5 @@
 import axios from "axios";
+import qs from 'qs';
 
 
 export async function getLightDevices(token) {
@@ -15,7 +16,6 @@ export async function getLightDevices(token) {
             let serviceResponse = [];
             serviceResponse[0] = response.status;
             serviceResponse[1] = response.data;
-            console.log("fetching")
             return serviceResponse
         })
         .catch(error => {
@@ -46,7 +46,6 @@ export async function getLightsFromRoom(token, RoomID) {
             let serviceResponse = [];
             serviceResponse[0] = response.status;
             serviceResponse[1] = response.data;
-            console.log(response.data)
             return serviceResponse
         })
         .catch(error => {
@@ -74,7 +73,6 @@ export async function getOpenDevices(token) {
             let serviceResponse = [];
             serviceResponse[0] = response.status;
             serviceResponse[1] = response.data;
-            console.log("fetching")
             return serviceResponse
         })
         .catch(error => {
@@ -148,6 +146,64 @@ export async function getLayoutFromRoom2(token, RoomID) {
 
 }
 
+export async function setRoomLayout(token, RoomID, Layout) {
+    const params = {
+        RoomID: RoomID,
+        Layout: Layout
+    };
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(params),
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            "Authorization": `Bearer ${token}`,
+            'Content-Type': 'application/json'
+
+        },
+    };
+    fetch("http://192.168.1.6:8080/public/lights/setRoomLayout", options)
+
+}
+
+export async function setRoomLayoutState(token, RoomID, state) {
+    const config = {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            "Authorization": `Bearer ${token}`,
+
+        }
+    };
+
+    let res = axios.post(`http://192.168.1.6:8080/public/lights/setRoomLayoutState`, config, {
+
+        params: {
+            RoomID,
+            state
+        }
+
+    }).then(response => {
+        let serviceResponse = [];
+
+        serviceResponse[0] = response.status;
+        serviceResponse[1] = response.data;
+
+        return serviceResponse
+    })
+        .catch(error => {
+
+            let serviceResponse = [];
+            console.log(error)
+            serviceResponse[0] = error.code;
+            serviceResponse[1] = error.response.status;
+
+
+            return serviceResponse
+        });
+
+    return res
+
+}
+
 export async function modifyLightDevice(token, DeviceID, Field, Value) {
     const config = {
         headers: {
@@ -187,7 +243,7 @@ export async function modifyLightDevice(token, DeviceID, Field, Value) {
 
 }
 
-export async function createLightDevice(token, DeviceID, RoomID, Name, State) {
+export async function createLightDevice(token, DeviceID, RoomID, Name, Type, State) {
     const config = {
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -202,6 +258,7 @@ export async function createLightDevice(token, DeviceID, RoomID, Name, State) {
             DeviceID,
             RoomID,
             Name,
+            Type,
             State
         }
     }).then(response => {

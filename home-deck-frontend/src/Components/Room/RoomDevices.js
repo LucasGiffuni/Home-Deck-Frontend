@@ -11,6 +11,7 @@ import { getLightDevices } from '../Services/DevicesService';
 
 
 
+
 export default class RoomDevices
     extends Component {
 
@@ -45,35 +46,39 @@ export default class RoomDevices
         } else {
             lights = this.state.lightsData
         }
-        return (
-            <div className='RoomDevicesStyle'>
-                <h1 className='Title'>Devices</h1>
-                <InfiniteScroll
-                    className='infinite-scroll-component'
-                    dataLength={this.state.lightsData.length}
-                    hasMore={true}
-                    loader={<h4>Loading...</h4>}
-                    height={230}
-                >
 
-                    {
-                        this.state.dataFetched
-                            ?
+
+        if (this.state.dataFetched) {
+            return (
+                <div className='RoomDevicesStyle'>
+                    <h1 className='Title'>Devices</h1>
+                    <InfiniteScroll
+                        className='infinite-scroll-component'
+                        dataLength={this.state.lightsData.length}
+                        hasMore={true}
+                        loader={<h4>Loading...</h4>}
+                        height={230}
+                    >
+
+                        {
+
                             lights.map((i, index) => (
                                 <Device key={index} token={token} id={i.id} text={i.name} value={i.lightBrightness} deviceState={i.state} mod={this.props.changeDetected} />
                             ))
-                            : ""
-                    }
-                </InfiniteScroll>
-            </div>
-        )
+
+                        }
+                    </InfiniteScroll>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div className="lds-facebook"><div></div><div></div><div></div></div>
+                </div>
+            )
+        }
+
 
     }
 
 }
-
-/*
- {this.state.items.map((i, index) => (
-                        <Device key={index} text={i.name} value={i.lightBrightness} />
-                    ))}
-                    */

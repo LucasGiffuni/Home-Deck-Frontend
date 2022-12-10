@@ -6,11 +6,8 @@ import './Styles/Home.css'
 import Alert from 'react-bootstrap/Alert';
 import LoginScreen from './LoginScreen';
 import WeatherComponent from './Weather/WeatherComponent';
-import LightsDashboard from './Lights/LightsDashboard'
-import ShadesDashboard from './Shades/ShadesDashboard'
 import TemperatureDashboard from './Temperature/TemperatureDashboard';
 import NavBar from './NavBar/NavBar';
-import OverviewDashboard from './Overview/OverviewDashboard';
 import Room from './Room/Room.js';
 
 
@@ -45,8 +42,8 @@ class Home extends Component {
 
         return (
             <div className='RoomStyle'>
-                <Room token={this.state.jwtToken} />
-                
+
+                <Room token={this.state.jwtToken}/>
             </div>
         );
     }
@@ -112,8 +109,6 @@ class Home extends Component {
                 </div>
 
                 <div className='ShadesContainer' id='ShadesContainer'>
-                    <p className='ShadesDevicesTitle deviceTitlePulsate'>Shades Devices</p>
-                    <ShadesDashboard />
                 </div>
 
                 <div className='TemperatureContainer' id='TemperatureContainer'>
@@ -122,12 +117,6 @@ class Home extends Component {
 
                 </div>
 
-
-                <div className='LightsContainer' id='LightsContainer'>
-                    <p className='LightsDevicesTitle deviceTitlePulsate'>Lights Devices</p>
-
-                    <LightsDashboard />
-                </div>
 
 
 

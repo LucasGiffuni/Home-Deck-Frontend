@@ -1,9 +1,0 @@
-.OverviewContainer{
-    width: fit-content;
-    display: grid;
-    grid-template-columns: min-content min-content;
-    grid-template-rows: min-content min-content;
-
-    width: 100%;
-    height: 100%;
-}
