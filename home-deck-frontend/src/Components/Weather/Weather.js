@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect, useRef } from 'react'
-import styled from 'styled-components';
+/* eslint-disable */
+import React, {  useState, useEffect} from 'react'
 import '../Styles/WeatherComponent.css';
 import { getWeather } from '../Services/UserService';
 
@@ -12,7 +12,8 @@ import { getWeather } from '../Services/UserService';
 function Weather(props) {
 
 
-    const [values, setValidLogin] = useState({
+    const [values, setValues] = useState({
+        dataFetched: false,
         weatherType: "Clear",
         weatherDesc: "Despejado",
         temperature: "",
@@ -24,21 +25,30 @@ function Weather(props) {
     });
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
+
+        const data = window.localStorage.getItem('WeatherData');
+        const jsonData =JSON.parse(data);
+        if (data !== null && jsonData.dataFetched) {
+            setValues(JSON.parse(data));
+        } else {
             const validateUserResponse = getWeather().then(data => {
 
-                setValidLogin({
+                setValues({
+                    dataFetched: true,
                     weatherType: data[1][0].main,
                     weatherDesc: data[1][0].description,
                     temperature: data[0].temp,
                     minTemperature: data[0].temp_min,
                     maxTemperature: data[0].temp_max
+
                 });
+                localStorage.setItem('WeatherData', JSON.stringify(values));
+
             });
+        }
 
-        }, 100000);
 
-        return () => clearTimeout(timeout);
+
     }, []);
 
 

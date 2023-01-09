@@ -57,7 +57,7 @@ export default class RoomDevices
                         dataLength={this.state.lightsData.length}
                         hasMore={true}
                         loader={<h4>Loading...</h4>}
-                        height={230}
+                        height={200}
                     >
 
                         {

@@ -90,7 +90,6 @@ export default class OpensDevices
                                     {
                                         i.map((z, index) => (
                                             <DoorComponent key={index} componentName={z.name} deviceState={z.state} token={token} gridValue={z.gridSite} id={z.id} mod={this.props.changeDetected} />
-
                                         ))
                                     }
                                 </Carousel.Item>

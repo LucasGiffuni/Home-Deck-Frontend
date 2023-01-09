@@ -16,16 +16,7 @@
     border: 5px solid #1f262a;
 }
 
-.Lights {
-    position: absolute;
-    top: 50%;
-    left: 50%;
 
-    transform: translateY(-50%) translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .RoomBody {
     position: relative;

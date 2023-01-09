@@ -223,12 +223,10 @@ function CuartoPiso1(props) {
                     }
                 </ResponsiveGridLayout >
 
-                <div className='Ventana' >
+                <div className='Ventana' />
 
-                </div>
-                <div className='Puerta'>
+                <div className='Puerta' />
 
-                </div>
 
 
             </div>

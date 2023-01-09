@@ -2,11 +2,8 @@
 import React, { Component, useState, useEffect } from 'react'
 
 
-import DoorRoundedImage from '../../Doors/DoorRoundedImage'
-import { getLightDevices } from '../../Services/DevicesService';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
-import styled from 'styled-components';
+import RoomPlaneItem from '../RoomPlaneItem'
+
 import '../Rooms/PasilloPiso1.css'
 
 
@@ -20,7 +17,7 @@ function PasilloPiso1(props) {
         <div className='PasilloPiso1Body'>
             <div className='EntradaPuertaPasillo'>
                 <div className='ImagenPuertaPasillo'>
-                    <DoorRoundedImage state={true} />
+                <RoomPlaneItem key={"a"} checked={true} type={"door"} />
                 </div>
             </div>
 

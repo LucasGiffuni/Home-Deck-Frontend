@@ -1,5 +1,6 @@
 .Lock-image {
   align-items: center;
+  margin-top: -1%;
   background-image: url('./Resources/Lock.png');
 
 
@@ -68,7 +69,7 @@
   color: white;
   font-weight: bold;
   font-size: .8rem;
-  margin-top: -35%;
+  margin-top: 5%;
   letter-spacing: 0.1em;
 
 

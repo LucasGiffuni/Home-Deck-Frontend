@@ -11,21 +11,20 @@ import RoundedImage from './DoorRoundedImage';
 
 
 
-const Button = styled.div`   
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    margin-top:5%;
-    margin-left:20%;
+
+const RoundedImageBody = styled.div`
+    text-align: left;
+    color: white;
+    margin: auto;
+    margin-top: 10%;
+
 `;
 
 const OnOff = styled.p`   
     text-align: left;
     color: white;
     margin: auto;
-    margin-left: -20%;
+    margin-left: 30%;
 
      text-shadow:
       0 0 4px #fff,
@@ -75,17 +74,14 @@ function SwitchExample(props) {
 
   return (
 
-    <DoorBody id='LightBody'>
-      <Button>
+    <DoorBody id='LightBody' onClick={onToggle}>
 
-        <OnOff>{isToggled ? "OPENED" : "CLOSED"}</OnOff>
-        <label className="toggle-switch">
-          <input type="checkbox" checked={isToggled} onChange={onToggle} />
-          <span className="switch" />
-        </label>
-      </Button>
+      <OnOff>{isToggled ? "OPENED" : "CLOSED"}</OnOff>
 
-      <RoundedImage checked={isToggled} />
+      <RoundedImageBody>
+        <RoundedImage checked={isToggled} />
+      </RoundedImageBody>
+
       <h1 className="neonShadeText ShadePulsate">{props.text}</h1>
     </DoorBody>
   );

@@ -11,6 +11,7 @@
 
 }
 
+
 .WeatherImage {
     grid-area: 1 / 1 / 2 / 2;
     background-image: url('./Resources/WeatherIcons/cloudySun.png');
@@ -23,6 +24,7 @@
 
     color: #fff;
     margin-top: 13%;
+    margin-left: 15%;
 }
 
 .WeatherDegree {
@@ -31,7 +33,6 @@
     text-align: right;
     color: #fff;
     margin-top: 13%;
-    margin-right: 10%;
 }
 
 
@@ -46,20 +47,24 @@
     grid-area: 1 / 1 / 2 / 2;
     background-image: url('./Resources/WeatherIcons/littleRain.png');
     background-size: cover;
-    margin-top: -15%;
+    margin-left: -12%;
 }
 
 .Thunderstorm {
     grid-area: 1 / 1 / 2 / 2;
     background-image: url('./Resources/WeatherIcons/strongStorm.png');
     background-size: cover;
-    margin-top: -15%;
+    transform: scale(1);
+
+    margin-top: -5%;
+    height: 150px;
 }
 
 .Clear {
     grid-area: 1 / 1 / 2 / 2;
     background-image: url('./Resources/WeatherIcons/sun.png');
     background-size: cover;
+
     margin-top: -15%;
 }
 
@@ -67,7 +72,10 @@
     grid-area: 1 / 1 / 2 / 2;
     background-image: url('./Resources/WeatherIcons/cloudyDay.png');
     background-size: cover;
-    margin-top: -15%;
+    transform: scale(.95);
+
+    margin-top: -5%;
+    margin-left: -10%;
 }
 
 .Mist {
@@ -77,6 +85,13 @@
     margin-top: -15%;
 }
 
+
+.ClockBody {
+    text-align: center;
+    align-items: center;
+    margin-top: -10%;
+    margin-left: -5%;
+}
 
 /*
 .parent {
