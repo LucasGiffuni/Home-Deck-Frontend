@@ -2,30 +2,29 @@
 import React, { Component, useState } from 'react'
 import styled from 'styled-components';
 
-import DoorComponent from '../Doors/DoorComponent'
+import LightComponent from '../Lights/LightComponent'
 import Carousel from 'react-bootstrap/Carousel';
 
 import '../Styles/RoomDevices.css'
-import { getOpenDevices } from '../Services/DevicesService';
+import { getLightDevices } from '../Services/DevicesService';
 
 
 
 
-const DoorsBody = styled.div`
+const LightsBody = styled.div`
 
-  display: flex; 
   justify-content: center;
-
+  height: 100%;
+  width:100%;
   
-  `;
+`;
 
-
-export default class OpensDevices
+export default class LightsDevices
     extends Component {
 
     state = {
         dataFetched: false,
-        opensData: "",
+        lightsData: "",
         jwtToken: ""
     };
 
@@ -35,9 +34,9 @@ export default class OpensDevices
     fetchData() {
         const { token } = this.props;
 
-        const response = getOpenDevices(token).then(data => {
+        const lightsResponse = getLightDevices(token).then(data => {
             this.setState({
-                opensData: data[1].opens,
+                lightsData: data[1].lights,
                 dataFetched: true
             });
         })
@@ -49,7 +48,7 @@ export default class OpensDevices
         const { token } = this.props;
 
         let opens = []
-        let lights4 = opens;
+        let lights4 = [];
         let lightsMatrix = [];
         let auxiliarArray = [];
         let counter = 0;
@@ -58,32 +57,34 @@ export default class OpensDevices
         if (!this.state.dataFetched) {
             this.fetchData()
         } else {
-            lights4 = this.state.opensData
+            lights4 = this.state.lightsData
 
 
 
             for (let k = 0; k < lights4.length; k++) {
                 auxiliarArray.push(lights4[k]);
+                console.log(lights4)
                 counter++;
+                if (counter == 6) {
 
-                if (counter == 4) {
                     lightsMatrix.push(auxiliarArray);
                     auxiliarArray = [];
                     counter = 0;
-                } 
+                }
             }
-
-            if(auxiliarArray.length != 3 && auxiliarArray.length != 0){
+            if (auxiliarArray.length != 4 && auxiliarArray.length != 0) {
                 lightsMatrix.push(auxiliarArray);
 
             }
+
+
         }
 
 
         if (this.state.dataFetched) {
 
             return (
-                <DoorsBody >
+                <LightsBody >
                     <Carousel interval={null}>
                         {
 
@@ -91,7 +92,7 @@ export default class OpensDevices
                                 <Carousel.Item key={index}>
                                     {
                                         i.map((z, index) => (
-                                            <DoorComponent key={index} componentName={z.name} deviceState={z.state} token={token} gridValue={z.gridSite} id={z.id} mod={this.props.changeDetected} />
+                                            <LightComponent key={index} componentName={z.name} deviceState={z.state} token={token} gridValue={z.gridSite} id={z.id} mod={this.props.changeDetected} type={z.type} />
                                         ))
                                     }
                                 </Carousel.Item>
@@ -103,7 +104,7 @@ export default class OpensDevices
 
                     </Carousel>
 
-                </DoorsBody>
+                </LightsBody>
             )
 
         } else {

@@ -70,26 +70,7 @@ export default class Room
                 <div className='RoomStyle'>
                     <div className='Preview'>
 
-                        <div className='Banio'>
-                            <BañoPiso1 token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='CuartoNuestro'>
-                            <CuartoPiso1 token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='ComedorCocina'>
-                            <ComedorCocina token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='SalaEstar'>
-                            <SalaEstar token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='Pasillo'>
-                            <PasilloPiso1 token={token} changeDetected={this.state.mod} />
-
-                        </div>
+                        
                     </div>
 
                     <div className='Devices'>

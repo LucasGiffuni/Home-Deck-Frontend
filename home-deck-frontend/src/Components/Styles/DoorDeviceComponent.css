@@ -6,7 +6,31 @@
 
   background-size: cover;
 
-   
+
+  transform: scale(.85);
+}
+
+.Light-image {
+  align-items: center;
+  margin-top: -1%;
+  background-image: url('./Resources/LightBulb.png');
+
+
+  background-size: cover;
+
+
+  transform: scale(.85);
+}
+
+.Lamp-image {
+  align-items: center;
+  margin-top: -1%;
+  background-image: url('./Resources/Lamp.png');
+
+
+  background-size: cover;
+
+
   transform: scale(.85);
 }
 
@@ -90,7 +114,7 @@
   0 0 100px #1a9ebd,
   0 0 150px #1a9ebd;
   */
- /* animation: pulsate 1.5s infinite alternate;*/
+  /* animation: pulsate 1.5s infinite alternate;*/
 }
 
 @keyframes pulsate {

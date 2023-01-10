@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import '../Styles/RoomDevices.css'
 import Form from 'react-bootstrap/Form';
 import RangeSlider from 'react-bootstrap-range-slider';
-import { modifyLightDevice } from '../Services/DevicesService';
+import { modifyLightDevice, apagarLuz, prenderLuz } from '../Services/DevicesService';
 
 
 //https://react-bootstrap.netlify.app/forms/checks-radios/#switches
@@ -64,7 +64,18 @@ function Device(props) {
             console.log(data)
         })
 
+        if (!isToggled) {
+            const response2 = prenderLuz(props.token).then(data => {
 
+                console.log(data)
+            })
+
+        } else {
+            const response2 = apagarLuz(props.token).then(data => {
+
+                console.log(data)
+            })
+        }
 
     };
 

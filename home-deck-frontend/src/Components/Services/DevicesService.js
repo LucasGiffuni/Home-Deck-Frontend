@@ -1,5 +1,4 @@
 import axios from "axios";
-import qs from 'qs';
 
 
 export async function getLightDevices(token) {
@@ -320,4 +319,73 @@ export async function modifyOpenDevice(token, DeviceID, Field, Value) {
 
     return res
 
+}
+
+export async function apagarLuz(token, topic) {
+    const config = {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            "Authorization": `Bearer ${token}`,
+
+        }
+    };
+    let res = axios.post(`http://192.168.1.6:8080/public/lights/nose`, config, {
+        params: {
+            topic,
+            message: 0
+        }
+    }).then(response => {
+        let serviceResponse = [];
+
+        serviceResponse[0] = response.status;
+        serviceResponse[1] = response.data;
+
+        return serviceResponse
+    })
+        .catch(error => {
+
+            let serviceResponse = [];
+            console.log(error)
+            serviceResponse[0] = error.code;
+            serviceResponse[1] = error.response.status;
+
+
+            return serviceResponse
+        });
+
+    return res
+}
+export async function prenderLuz(token, topic) {
+    const config = {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            "Authorization": `Bearer ${token}`,
+
+        }
+    };
+    let res = axios.post(`http://192.168.1.6:8080/public/lights/nose`, config, {
+        params: {
+            topic,
+            message: 1
+        }
+    }).then(response => {
+        let serviceResponse = [];
+
+        serviceResponse[0] = response.status;
+        serviceResponse[1] = response.data;
+
+        return serviceResponse
+    })
+        .catch(error => {
+
+            let serviceResponse = [];
+            console.log(error)
+            serviceResponse[0] = error.code;
+            serviceResponse[1] = error.response.status;
+
+
+            return serviceResponse
+        });
+
+    return res
 }
