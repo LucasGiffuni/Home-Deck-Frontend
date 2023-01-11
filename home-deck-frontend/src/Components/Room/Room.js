@@ -15,6 +15,8 @@ import SalaEstar from './Rooms/SalaEstar';
 import PasilloPiso1 from './Rooms/PasilloPiso1';
 import VideoFeed from './VideoFeed';
 
+import RoomPlane from './RoomPlane';
+
 import Carousel from 'react-bootstrap/Carousel';
 
 
@@ -69,27 +71,8 @@ export default class Room
 
                 <div className='RoomStyle'>
                     <div className='Preview'>
+                        <RoomPlane token={token} />
 
-                        <div className='Banio'>
-                            <BañoPiso1 token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='CuartoNuestro'>
-                            <CuartoPiso1 token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='ComedorCocina'>
-                            <ComedorCocina token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='SalaEstar'>
-                            <SalaEstar token={token} changeDetected={this.state.mod} />
-
-                        </div>
-                        <div className='Pasillo'>
-                            <PasilloPiso1 token={token} changeDetected={this.state.mod} />
-
-                        </div>
                     </div>
 
                     <div className='Devices'>
@@ -115,6 +98,7 @@ export default class Room
                     <div className='Doors'>
                         <OpensDevices token={token} changeDetected={this.handleChangeDetected} />
                     </div>
+
 
                     <div className='Cameras'>
                         <Carousel interval={null}>

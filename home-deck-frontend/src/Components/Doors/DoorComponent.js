@@ -7,8 +7,7 @@ const DoorComponentStyle = styled.div`
 
 
     background-color: ${props => (props.checked ? "rgb(43,191,226,1);" : "#2e2e2e")}; 
-    height: 150px;
-    width: 150px;
+    
 
     font-family: 'Poppins', sans-serif;
     border-radius: 30px;
@@ -16,12 +15,21 @@ const DoorComponentStyle = styled.div`
 
 
     margin-bottom: 10px;
-    margin-top: 10px;
     display: inline-block;
 
     margin-right: 2%;
     margin-left: 2%;
 
+    @media (height > 900px) {
+        height: 20%;
+        width: 20%;
+        margin-top: 4%;
+  }
+  @media (height: 800px) {
+        height: 20%;
+        width: 20%;
+        margin-top: 3%;
+  }
 `;
 
 export default class ShadeDashboard extends Component {

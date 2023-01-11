@@ -63,7 +63,6 @@ export default class LightsDevices
 
             for (let k = 0; k < lights4.length; k++) {
                 auxiliarArray.push(lights4[k]);
-                console.log(lights4)
                 counter++;
                 if (counter == 6) {
 

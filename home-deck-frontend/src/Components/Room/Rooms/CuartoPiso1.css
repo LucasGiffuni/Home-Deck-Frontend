@@ -19,18 +19,21 @@
 
 
 .RoomBody {
-    position: relative;
 
-    margin: auto;
+    background: url('../../Styles/Resources/plane.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100%;
 
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
 
-
-    border: 10px solid black;
 }
+
 .Room1Body {
 
-   
+
     position: relative;
 
     margin: auto;
@@ -42,11 +45,4 @@
     border-bottom: 10px solid black;
     border-left: 10px solid black;
 
-}
-
-.RoomBody:hover {
-    transform: scale(1.01);
-}
-.Room1Body:hover {
-    transform: scale(1.01);
 }
