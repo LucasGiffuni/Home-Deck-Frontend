@@ -1,12 +1,14 @@
 /* eslint-disable */
 import React, { Component, useState, useEffect } from 'react'
 import styled from 'styled-components';
-import planoLuzCuarto from '../Styles/Resources/planoLuzCuarto.png';
-import planoBase from '../Styles/Resources/plane.png';
-import planoLucesSalon from '../Styles/Resources/planoLucesSalon.png';
-import planoLucesSalonCuarto from '../Styles/Resources/planoLucesSalonCuarto.png';
-import planoLucesSalonComedor from '../Styles/Resources/planoLucesSalonComedor.png';
-import planoLucesCuartoSalonComedorCocina from '../Styles/Resources/planoLucesCuartoSalonComedorCocina.png';
+
+import planoLuzCuarto from '../Styles/Resources/PlanosCasa/PlanoLuzCuarto.png';
+import planoLucesSalon from '../Styles/Resources/PlanosCasa/PlanoLuzSala.png';
+import planoLucesCuartoComedor from '../Styles/Resources/PlanosCasa/PlanoLuzCuartoComedor.png';
+import planoLuzComedor from '../Styles/Resources/PlanosCasa/PlanoLuzComedor.png'
+import planoLuzCuartoSalon from '../Styles/Resources/PlanosCasa/PlanoLuzCuartoSala.png'
+import PlanoLuzCuartoComedorSala from '../Styles/Resources/PlanosCasa/PlanoLuzCuartoComedorSala.png'
+import PlanoLuzComedorSala from '../Styles/Resources/PlanosCasa/PlanoLuzComedorSala.png'
 
 
 
@@ -18,41 +20,56 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { Responsive, WidthProvider } from "react-grid-layout";
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-
+479
 const handlerPlaneType = luces => {
-    console.log(luces)
-    if (luces[0].state && !(luces[1].state || luces[2].state || luces[3].state || luces[4].state)) {
-        return `url(${planoLuzCuarto})`;
-    } else if ((luces[3].state || luces[4].state) && !(luces[0].state || luces[1].state || luces[2].state)) {
-        return `url(${planoLucesSalon})`;
-    } else if ((luces[3].state || luces[4].state) && luces[0].state && !(luces[1].state || luces[2].state)) {
-        return `url(${planoLucesSalonCuarto})`;
-    } else if (((luces[1].state || luces[2].state) && (luces[3].state || luces[4].state)) && !(luces[0].state)) {
-        return `url(${planoLucesSalonComedor})`;
-    } else if (luces[0].state && (luces[1].state || luces[2].state) && (luces[3].state || luces[4].state)) {
-        return `url(${planoLucesCuartoSalonComedorCocina})`;
 
+
+
+    if ((luces[0].state) && !((luces[1].state || luces[2].state || luces[3].state || luces[4].state))) {
+        return `url(${planoLuzCuarto})`; // Plano Luz Cuarto
+    } else if ((luces[1].state || luces[2].state) && !((luces[0].state || luces[3].state || luces[4].state))) {
+        return `url(${planoLuzComedor})`; // Plano Luz Comedor
+    } else if ((luces[3].state || luces[4].state) && !((luces[0].state || luces[1].state || luces[2].state))) {
+        return `url(${planoLucesSalon})`; // Plano Luz Salon
+    } else if ((luces[0].state && (luces[1].state || luces[2].state)) && !((luces[3].state || luces[4].state))) {
+        return `url(${planoLucesCuartoComedor})`; // Plano Luz Cuarto Comedor
+    } else if ((luces[0].state && (luces[3].state || luces[4].state)) && !((luces[1].state || luces[2].state))) {
+        return `url(${planoLuzCuartoSalon})`; // Plano Luz Cuarto Salon
+    } else if ((luces[0].state && (luces[3].state || luces[4].state)) && (luces[1].state || luces[2].state)) {
+        return `url(${PlanoLuzCuartoComedorSala})`; // Plano Luz Cuarto Salon
+    } else if (((luces[3].state || luces[4].state) && (luces[1].state || luces[2].state)) && !(luces[0].state)) {
+        return `url(${PlanoLuzComedorSala})`; // Plano Luz Comedor Salon
+    }
+};
+
+const handlerPlaneZIndex = luces => {
+    if (luces[0].state && !(luces[1].state || luces[2].state || luces[3].state || luces[4].state)) {
+        return 2;
+    } else if ((luces[3].state || luces[4].state) && !(luces[0].state || luces[1].state || luces[2].state)) {
+        return 2;
+    } else if ((luces[3].state || luces[4].state) && luces[0].state && !(luces[1].state || luces[2].state)) {
+        return 2;
+    } else if (((luces[1].state || luces[2].state) && (luces[3].state || luces[4].state)) && !(luces[0].state)) {
+        return 2;
+    } else if (luces[0].state && (luces[1].state || luces[2].state) && (luces[3].state || luces[4].state)) {
+        return 2;
+    } else if ((luces[1].state || luces[2].state) && !(luces[0].state && luces[3].state && luces[4].state && luces[5].state)) {
+        return 2;
     } else {
-        return `url(${planoBase})`;
+        return 1;
     }
 };
 
 const PlaneBody = styled.div`
-
- 
-
-
     background: ${props => handlerPlaneType(props.luces)};
+    z-index: ${props => handlerPlaneZIndex(props.luces)};
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100%;
-
     width: 100%;
     height: 100%;
-
-  
 `;
 
 function RoomPlane(props) {
@@ -60,7 +77,7 @@ function RoomPlane(props) {
     let lights = []
     let doors = []
 
-    let Room1 = []
+    let Lights1 = []
     let Lamps1 = []
 
     let Doors1 = []
@@ -127,7 +144,7 @@ function RoomPlane(props) {
         lights = luces.lightsData
         lights.forEach(element => {
             if (element.type == "Light") {
-                Room1.push(element)
+                Lights1.push(element)
 
             } else if (element.type == "Lamp") {
                 Lamps1.push(element)
@@ -155,7 +172,7 @@ function RoomPlane(props) {
                 console.log(JSON.stringify({
                     [key]: value
                 }))
-       */
+        */
     }
     function getFromLS(key) {
         let ls = {};
@@ -198,7 +215,7 @@ function RoomPlane(props) {
     if ((puertas.dataFetched && luces.dataFetched && layoutquery.layoutFetched)) {
 
         return (
-            <PlaneBody id={"PlaneBody"} luces={Room1} onClick={getClickHandler(
+            <PlaneBody id={"PlaneBody"} luces={Lights1} onClick={getClickHandler(
                 function () {
                     const setRoom = setRoomLayout(props.token, "3", layoutquery.layout)
                 },
@@ -222,12 +239,12 @@ function RoomPlane(props) {
             )} >
                 <ResponsiveGridLayout
                     layouts={layoutquery.layout["layouts"]}
-                    breakpoints={{ lg: 300, md: 300, sm: 800, xs: 800, xxs: 800 }}
-                    cols={{ lg: 75, md: 75, sm: 75, xs: 50, xxs: 75 }}
+                    breakpoints={{ lg: 1280, md: 800, sm: 1920, xs: 1080, xxs: 2 }}
+                    cols={{ lg: 20, md: 20, sm: 20, xs: 70, xxs: 50 }}
                     rowHeight={4}
                     autoSize={true}
                     preventCollision={true}
-                    height={100}
+                    width={996}
 
                     isBounded={true}
                     compactType={null}
@@ -251,7 +268,7 @@ function RoomPlane(props) {
                     }
 
                     {
-                        Room1.map((i, index) => (
+                        Lights1.map((i, index) => (
 
                             <div key={i.name} data-grid={{ i: i.name, x: 0, y: 0, w: 3, h: 3 }}>
                                 <OverlayTrigger
