@@ -18,6 +18,7 @@ const RoundedImageBody = styled.div`
     margin: auto;
     margin-top: 10%;
 
+
 `;
 
 const OnOff = styled.p`   

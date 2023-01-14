@@ -8,6 +8,9 @@ import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
 import './index.css';
 import Home from './Components/Home';
+import { app } from './Components/Services/firebase-config';
+import { FirebaseAppProvider } from 'reactfire'
+
 
 const ScreenStyle = styled.div`   
   width: 100vw;
@@ -19,9 +22,11 @@ const ScreenStyle = styled.div`
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-    <ScreenStyle>
+  <ScreenStyle>
+    <FirebaseAppProvider firebaseApp={app} >
       <Home />
-    </ScreenStyle>
+    </FirebaseAppProvider>
+  </ScreenStyle>
 
 );
 

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 
 import planoLuzCuarto from '../Styles/Resources/PlanosCasa/PlanoLuzCuarto.png';
@@ -20,10 +20,13 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { Responsive, WidthProvider } from "react-grid-layout";
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-479
+
+import { getDatabase, ref, onValue, get, child } from "firebase/database";
+
+
+
+
 const handlerPlaneType = luces => {
-
-
 
     if ((luces[0].state) && !((luces[1].state || luces[2].state || luces[3].state || luces[4].state))) {
         return `url(${planoLuzCuarto})`; // Plano Luz Cuarto
@@ -40,9 +43,10 @@ const handlerPlaneType = luces => {
     } else if (((luces[3].state || luces[4].state) && (luces[1].state || luces[2].state)) && !(luces[0].state)) {
         return `url(${PlanoLuzComedorSala})`; // Plano Luz Comedor Salon
     }
-};
 
+};
 const handlerPlaneZIndex = luces => {
+
     if (luces[0].state && !(luces[1].state || luces[2].state || luces[3].state || luces[4].state)) {
         return 2;
     } else if ((luces[3].state || luces[4].state) && !(luces[0].state || luces[1].state || luces[2].state)) {
@@ -58,6 +62,7 @@ const handlerPlaneZIndex = luces => {
     } else {
         return 1;
     }
+
 };
 
 const PlaneBody = styled.div`
@@ -74,6 +79,7 @@ const PlaneBody = styled.div`
 
 function RoomPlane(props) {
 
+
     let lights = []
     let doors = []
 
@@ -83,15 +89,14 @@ function RoomPlane(props) {
     let Doors1 = []
     let Windows1 = []
 
+    const [devices, setDevices] = useState([]);
 
     const [layoutquery, setlayoutquery] = useState({
         layout: {},
         layoutFetched: false,
     });
-
     const [layoutstaticstate, setlayoutstaticstate] = useState(true);
-
-    let originalLayout = getFromLS("layouts");
+    getFromLS("layouts");
 
     const [luces, setluces] = useState({
         lightsData: "",
@@ -104,35 +109,70 @@ function RoomPlane(props) {
         dataFetched: false
     });
 
-    const [lucesState, setLucesState] = useState();
 
 
+    function fetchDeviceData() {
+        const dbRef = ref(getDatabase());
+
+        get(child(dbRef, `/Devices`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                setDevices(snapshot.val());
+
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    }
+
+    useEffect(() => {
+        fetchDeviceData()
+
+
+        const db = getDatabase();
+        const starCountRef = ref(db, "/Devices");
+
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data !== null) {
+                setDevices(data);
+                setluces({
+                    lightsData: devices,
+                    dataFetched: true
+                });
+
+            }
+        });
+
+
+        if (luces.dataFetched) {
+            lights = devices
+            lights.forEach(element => {
+                if (element.Type == "Light") {
+                    Lights1.push(element)
+
+                } else if (element.Type == "Lamp") {
+                    Lamps1.push(element)
+                }
+            });
+        }
+
+    }, [])
 
 
 
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            const response = getLightDevices(props.token).then(data => {
-                setluces({
-                    lightsData: data[1].lights,
-                    dataFetched: true
-                });
-            })
             const response2 = getOpenDevices(props.token).then(data2 => {
                 setpuertas({
                     doorsData: data2[1].opens,
                     dataFetched: true
                 });
             })
-
-
-
         }, 100);
-
-
-
-
+        5
         return () => clearTimeout(timeout);
     }, [props || luces.lightCreated])
 
@@ -141,12 +181,11 @@ function RoomPlane(props) {
 
 
     if (luces.dataFetched) {
-        lights = luces.lightsData
+        lights = devices
         lights.forEach(element => {
-            if (element.type == "Light") {
+            if (element.Type == "Light") {
                 Lights1.push(element)
-
-            } else if (element.type == "Lamp") {
+            } else if (element.Type == "Lamp") {
                 Lamps1.push(element)
             }
         });
@@ -237,6 +276,7 @@ function RoomPlane(props) {
                     })
                 }
             )} >
+
                 <ResponsiveGridLayout
                     layouts={layoutquery.layout["layouts"]}
                     breakpoints={{ lg: 1280, md: 800, sm: 1920, xs: 1080, xxs: 2 }}
@@ -253,14 +293,14 @@ function RoomPlane(props) {
                     }>
                     {
                         Lamps1.map((i, index) => (
-                            <div key={i.name} data-grid={{ i: i.name, x: 0, y: 0, w: 3, h: 3 }}>
+                            <div key={i.Name} data-grid={{ i: i.Name, x: 3, y:3, w: 3, h: 3 }}>
                                 <OverlayTrigger
                                     placement="right"
                                     delay={{ show: 50, hide: 50 }}
-                                    overlay={renderTooltip(props, i.name)}
+                                    overlay={renderTooltip(props, i.Name)}
                                 >
                                     <div>
-                                        <RoomPlaneItem key={i.name} checked={i.state} type={"lamp"} />
+                                        <RoomPlaneItem key={i.Name} checked={i.state} type={"lamp"}  />
                                     </div>
                                 </OverlayTrigger>
                             </div>
@@ -270,14 +310,14 @@ function RoomPlane(props) {
                     {
                         Lights1.map((i, index) => (
 
-                            <div key={i.name} data-grid={{ i: i.name, x: 0, y: 0, w: 3, h: 3 }}>
+                            <div key={i.Name} data-grid={{ i: i.Name, x: 0, y: 0, w: 3, h: 3 }}>
                                 <OverlayTrigger
                                     placement="right"
                                     delay={{ show: 50, hide: 50 }}
-                                    overlay={renderTooltip(props, i.name)}
+                                    overlay={renderTooltip(props, i.Name)}
                                 >
                                     <div>
-                                        <RoomPlaneItem key={i.name} checked={i.state} type={"light"} />
+                                        <RoomPlaneItem key={i.Name} checked={i.state} type={"light"} />
                                     </div>
                                 </OverlayTrigger>
                             </div>

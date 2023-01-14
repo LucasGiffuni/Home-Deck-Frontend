@@ -12,7 +12,6 @@ function VideoFeed(props) {
   const [videofetching, setvideofetching] = useState(true);
 
 
-  console.log(props.src)
 
   function handleVideoError() {
     setvideofetching(!videofetching)

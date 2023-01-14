@@ -1,13 +1,14 @@
 /* eslint-disable */
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import '../Styles/DoorDeviceComponent.css'
-import { modifyLightDevice, apagarLuz, prenderLuz } from '../Services/DevicesService';
 
 import RoundedImage from './LightRoundedImage';
 
-//https://react-bootstrap.netlify.app/forms/checks-radios/#switches
+
+import { getDatabase, ref, set } from "firebase/database";
+
 
 
 
@@ -45,18 +46,20 @@ const DoorBody = styled.div`
   height: 100%;
 `;
 
-function SwitchExample(props) {
+function LightDeviceComponent(props) {
 
   const [isToggled, setIsToggled] = useState(props.deviceState);
 
+
+
   const onToggle = () => {
+    console.log("Modificando")
 
     setIsToggled(!isToggled)
-    const modifyLight = modifyLightDevice(props.token, props.id, "state", !isToggled).then(data => {
 
-      console.log(data)
-    })
+  
 
+    /*
     if (!isToggled) {
       const prenderLuzResponse = prenderLuz(props.token, "device/led/" + props.text).then(data => {
 
@@ -69,17 +72,28 @@ function SwitchExample(props) {
         console.log(data)
       })
     }
+    */
   };
 
 
-  React.useEffect(() => {
-    if (props.onChange) {
-      props.onChange(isToggled)
-    }
-    props.mod(isToggled);
 
 
-  }, [isToggled])
+  useEffect(() => {
+
+    setIsToggled(props.deviceState)
+
+    const db = getDatabase();
+    
+    set(ref(db, '/Devices/' + props.deviceID), {
+      ID: props.deviceID,
+      Name: props.text,
+      RoomID: props.RoomID,
+      Type: props.type,
+      state: isToggled
+    });
+  }, [props.deviceState])
+
+
 
 
   return (
@@ -97,4 +111,4 @@ function SwitchExample(props) {
   );
 }
 
-export default SwitchExample;
+export default LightDeviceComponent;

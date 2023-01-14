@@ -1,7 +1,7 @@
 /* eslint-disable */
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import styled from 'styled-components';
-import LightComponent from '../Lights/LightDeviceComponent'
+import LightDeviceComponent from '../Lights/LightDeviceComponent'
 
 const LightComponentStyle = styled.div`   
 
@@ -24,30 +24,33 @@ const LightComponentStyle = styled.div`
 
 `;
 
-export default class LightDashboard extends Component {
-
-
-    state = {
-        ShadeComponentState: this.props.deviceState
-    };
-
-
-    render() {
-        const eventhandler = data => {
-            this.setState({
-                ShadeComponentState: !this.state.ShadeComponentState
-            });
-        }
+function LightComponent(props) {
+    const [lightComponentState, setLightComponentState] = useState(props.deviceState);
 
 
 
-        const { gridValue, componentName, token, id, deviceState, type } = this.props;
-        return (
 
-            <LightComponentStyle checked={this.state.ShadeComponentState} gridArea={gridValue} onClick={eventhandler} id={componentName}>
-                <LightComponent text={componentName} id={id} token={token} deviceState={deviceState} mod={this.props.mod} type={type} />
-            </LightComponentStyle>
-        )
+
+    function changeState() {
+        setLightComponentState(!lightComponentState)
     }
 
+    useEffect(() => {
+
+        setLightComponentState(props.deviceState)
+
+    }, [props.deviceState])
+
+
+
+    return (
+
+        <LightComponentStyle checked={lightComponentState} gridArea={props.gridValue} onClick={changeState} id={props.componentName}>
+            <LightDeviceComponent text={props.componentName} id={props.id} deviceID={props.deviceID} token={props.token} deviceState={lightComponentState} mod={props.mod} type={props.type}  RoomID={props.RoomID}/>
+        </LightComponentStyle>
+    )
+
+
 }
+
+export default LightComponent;
