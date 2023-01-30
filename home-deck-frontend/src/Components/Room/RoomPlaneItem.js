@@ -16,9 +16,12 @@ const ButtonBody = styled.div`
 
 `;
 const Button = styled.div`   
-    border-radius: 30px;
-    height: 35px;
-    width: 35px;
+    border-radius: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+
     background-color: ${props => (props.checkedValue ? "rgba(246, 135, 51, 1)" : "#2e2e2e")}; 
     box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.2),
                 15px 15px 15px rgba(0,0,0,0.1),
@@ -30,11 +33,32 @@ const Button = styled.div`
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 `;
-
 const DoorButton = styled.div`   
-    border-radius: 30px;
-    height: 35px;
-    width: 35px;
+    border-radius: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+
+    background-color: ${props => (props.checkedValue ? "rgb(43,191,226,1)" : "#2e2e2e")}; 
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.2),
+                15px 15px 15px rgba(0,0,0,0.1),
+                inset -50px -50px 50px rgba(255, 255, 255, 0.2),
+                inset 50px 50px 50px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+`;
+
+const WindowButton = styled.div`   
+    border-radius: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+
     background-color: ${props => (props.checkedValue ? "rgb(43,191,226,1)" : "#2e2e2e")}; 
     box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.2),
                 15px 15px 15px rgba(0,0,0,0.1),
@@ -48,8 +72,6 @@ const DoorButton = styled.div`
 `;
 
 class RoomPlaneItem extends Component {
-
-
 
     renderLightItem = () => {
         const { checked, itemType } = this.props;
@@ -80,9 +102,9 @@ class RoomPlaneItem extends Component {
 
         return (
             <ButtonBody id='imageBody'>
-                <Button checkedValue={checked} id='image'>
+                <WindowButton checkedValue={checked} id='image'>
                     <div className='window-item-image'></div>
-                </Button>
+                </WindowButton>
             </ButtonBody>
         )
     }

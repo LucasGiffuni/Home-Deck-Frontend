@@ -4,21 +4,15 @@ import '../Styles/Room.css'
 import Weather from '../Weather/Weather';
 import Clock from './Clock';
 
-import RoomDevices from './RoomDevices';
 import LightsDevices from './LightsDevices';
 
-import CuartoPiso1 from './Rooms/CuartoPiso1'
-import BañoPiso1 from './Rooms/BañoPiso1';
+
 import OpensDevices from './OpensDevices';
-import ComedorCocina from './Rooms/ComedorCocina';
-import SalaEstar from './Rooms/SalaEstar';
-import PasilloPiso1 from './Rooms/PasilloPiso1';
 import VideoFeed from './VideoFeed';
-
 import RoomPlane from './RoomPlane';
-
 import Carousel from 'react-bootstrap/Carousel';
 
+import Menu from './Menu';
 
 
 export default class Room
@@ -28,7 +22,6 @@ export default class Room
         lightsDataFetched: false,
         lightsData: "",
         mod: true
-
     };
 
 
@@ -112,7 +105,10 @@ export default class Room
                         </Carousel>
                     </div>
 
+                    <div className='Menu'>
 
+                        <Menu />
+                    </div>
                 </div>
 
             </div>

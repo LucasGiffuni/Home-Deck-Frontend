@@ -77,6 +77,11 @@ const PlaneBody = styled.div`
     height: 100%;
 `;
 
+const planeItem = styled.div`
+   width: 40px;
+    height: 40px;
+`;
+
 function RoomPlane(props) {
 
 
@@ -207,11 +212,11 @@ function RoomPlane(props) {
         saveToLS("layouts", layouts);
     }
     function saveToLS(key, value) {
-        /*
+       
                 console.log(JSON.stringify({
                     [key]: value
                 }))
-        */
+        
     }
     function getFromLS(key) {
         let ls = {};
@@ -279,12 +284,10 @@ function RoomPlane(props) {
 
                 <ResponsiveGridLayout
                     layouts={layoutquery.layout["layouts"]}
-                    breakpoints={{ lg: 1280, md: 800, sm: 1920, xs: 1080, xxs: 2 }}
+                    breakpoints={{ lg: 1280, md: 800, sm: 1920, xs: 900, xxs: 2 }}
                     cols={{ lg: 20, md: 20, sm: 20, xs: 70, xxs: 50 }}
                     rowHeight={4}
-                    autoSize={true}
                     preventCollision={true}
-                    width={996}
 
                     isBounded={true}
                     compactType={null}
@@ -293,34 +296,37 @@ function RoomPlane(props) {
                     }>
                     {
                         Lamps1.map((i, index) => (
-                            <div key={i.Name} data-grid={{ i: i.Name, x: 3, y:3, w: 3, h: 3 }}>
+                            <planeItem key={i.Name} data-grid={{ i: i.Name, x: 3, y: 3, w: 3, h: 3 }}>
                                 <OverlayTrigger
                                     placement="right"
                                     delay={{ show: 50, hide: 50 }}
                                     overlay={renderTooltip(props, i.Name)}
                                 >
                                     <div>
-                                        <RoomPlaneItem key={i.Name} checked={i.state} type={"lamp"}  />
+                                        <RoomPlaneItem key={i.Name} checked={i.state} type={"lamp"} />
                                     </div>
+
                                 </OverlayTrigger>
-                            </div>
+                            </planeItem>
                         ))
                     }
 
                     {
                         Lights1.map((i, index) => (
 
-                            <div key={i.Name} data-grid={{ i: i.Name, x: 0, y: 0, w: 3, h: 3 }}>
+                            <planeItem key={i.Name} data-grid={{ i: i.Name, x: 0, y: 0, w: 3, h: 3 }}>
                                 <OverlayTrigger
                                     placement="right"
                                     delay={{ show: 50, hide: 50 }}
                                     overlay={renderTooltip(props, i.Name)}
                                 >
                                     <div>
+
                                         <RoomPlaneItem key={i.Name} checked={i.state} type={"light"} />
                                     </div>
+
                                 </OverlayTrigger>
-                            </div>
+                            </planeItem>
                         ))
                     }
                     {

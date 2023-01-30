@@ -16,7 +16,6 @@ const DoorComponentStyle = styled.div`
 
     margin-bottom: 10px;
     display: inline-block;
-
     margin-right: 2%;
     margin-left: 2%;
 
@@ -24,12 +23,12 @@ const DoorComponentStyle = styled.div`
         height: 20%;
         width: 20%;
         margin-top: 4%;
-  }
+    }
   @media (height: 800px) {
         height: 20%;
         width: 20%;
         margin-top: 3%;
-  }
+    }
 `;
 
 export default class ShadeDashboard extends Component {

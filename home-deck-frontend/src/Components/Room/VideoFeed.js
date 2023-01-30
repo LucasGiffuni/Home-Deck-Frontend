@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import ReactPlayer from 'react-player';
 
+import styled from 'styled-components';
 
 
 
+const videoBody = styled.div`
 
+  background-color: red;
+
+`;
 
 
 function VideoFeed(props) {
@@ -22,18 +27,18 @@ function VideoFeed(props) {
     return (
 
 
-      <div>
+      <videoBody>
 
         <ReactPlayer
           playing
           loop
-          height={250}
+          height={750}
           width={500}
           onError={handleVideoError()}
 
           url={props.src}>
         </ReactPlayer>
-      </div>
+      </videoBody>
 
     );
   } else {
