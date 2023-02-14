@@ -7,6 +7,8 @@ import '../Styles/DoorDeviceComponent.css'
 import RoundedImage from './LightRoundedImage';
 
 
+import {prenderLuz, apagarLuz} from '../Services/DevicesService'
+
 import { getDatabase, ref, set } from "firebase/database";
 
 
@@ -59,7 +61,7 @@ function LightDeviceComponent(props) {
 
   
 
-    /*
+    
     if (!isToggled) {
       const prenderLuzResponse = prenderLuz(props.token, "device/led/" + props.text).then(data => {
 
@@ -72,7 +74,7 @@ function LightDeviceComponent(props) {
         console.log(data)
       })
     }
-    */
+    
   };
 
 

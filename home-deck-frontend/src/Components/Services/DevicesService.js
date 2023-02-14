@@ -1,6 +1,9 @@
 import axios from "axios";
 
 
+
+
+
 export async function getLightDevices(token) {
     const instance = axios.create({
         baseURL: 'http://192.168.1.6:8080',
